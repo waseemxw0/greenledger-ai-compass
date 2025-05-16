@@ -57,36 +57,48 @@ export function PricingSection() {
   ];
 
   return (
-    <section className="py-12">
-      <div className="text-center mb-10">
-        <h2 className="text-3xl font-bold mb-3">Unlock the Full ESG Suite</h2>
+    <section className="py-12 relative overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-emerald/5 to-transparent"></div>
+      
+      <div className="text-center mb-12 relative">
+        <h2 className="text-3xl font-bold mb-3 bg-gradient-to-r from-emerald to-emerald-light bg-clip-text text-transparent">
+          Unlock the Full ESG Suite
+        </h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           Choose the plan that best fits your business's sustainability reporting needs
         </p>
       </div>
 
       <div className="grid md:grid-cols-3 gap-6">
-        {pricingTiers.map((tier) => (
-          <Card key={tier.name} className={tier.popular ? "border-emerald shadow-lg" : ""}>
+        {pricingTiers.map((tier, index) => (
+          <Card 
+            key={tier.name} 
+            className={`relative overflow-hidden transition-all duration-300 hover:-translate-y-2 ${
+              tier.popular ? "border-emerald shadow-lg" : "hover:shadow-md"
+            }`}
+            style={{ animationDelay: `${0.2 * (index + 1)}s` }}
+          >
             {tier.popular && (
-              <div className="bg-emerald text-white text-center py-1 text-sm font-medium">
-                Most Popular
+              <div className="absolute top-0 right-0">
+                <div className="bg-emerald text-white text-center py-1 px-8 text-sm font-medium rotate-45 translate-x-8 translate-y-4">
+                  Popular
+                </div>
               </div>
             )}
             <CardHeader>
-              <CardTitle>{tier.name}</CardTitle>
-              <div className="mt-2">
-                <span className="text-3xl font-bold">{tier.price}</span>
+              <CardTitle className="text-2xl">{tier.name}</CardTitle>
+              <div className="mt-4">
+                <span className="text-4xl font-bold">{tier.price}</span>
                 <span className="text-muted-foreground">/month</span>
               </div>
               <CardDescription className="mt-2">{tier.description}</CardDescription>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex items-start">
-                    <div className="mr-2 h-5 w-5 text-emerald shrink-0">
-                      <Check className="h-5 w-5" />
+                    <div className="mr-2 h-5 w-5 text-emerald shrink-0 bg-emerald/10 rounded-full p-0.5">
+                      <Check className="h-4 w-4" />
                     </div>
                     <span className="text-sm">{feature}</span>
                   </li>
@@ -95,7 +107,7 @@ export function PricingSection() {
             </CardContent>
             <CardFooter>
               <Button 
-                className={`w-full ${tier.popular ? 'bg-emerald hover:bg-emerald-dark' : ''}`}
+                className={`w-full ${tier.popular ? 'bg-emerald hover:bg-emerald-dark shadow-glow' : ''}`}
                 variant={tier.popular ? "default" : "outline"}
               >
                 {tier.cta}

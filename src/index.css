@@ -1,5 +1,6 @@
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -52,7 +53,11 @@
   }
 
   body {
-    @apply bg-background text-foreground font-ibm-plex;
+    @apply bg-background text-foreground font-manrope;
+    background-image: 
+      radial-gradient(at 20% 20%, rgba(16, 185, 129, 0.05) 0px, transparent 50%),
+      radial-gradient(at 80% 90%, rgba(14, 165, 233, 0.05) 0px, transparent 50%);
+    background-attachment: fixed;
   }
 }
 
@@ -68,8 +73,8 @@
 
 .progress-ring-container {
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
 }
 
 .progress-ring {
@@ -79,16 +84,17 @@
 
 .progress-ring-circle {
   stroke-dashoffset: 0;
-  transition: stroke-dashoffset 0.5s ease;
+  transition: stroke-dashoffset 1s ease;
   stroke: #10b981;
   stroke-width: 8px;
   stroke-linecap: round;
   fill: transparent;
+  filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.5));
 }
 
 .progress-ring-circle-bg {
-  stroke: #e5e7eb;
-  stroke-width: 8px;
+  stroke: rgba(229, 231, 235, 0.5);
+  stroke-width: 6px;
   fill: transparent;
 }
 
@@ -102,16 +108,17 @@
 
 .progress-bar {
   height: 8px;
-  border-radius: 4px;
-  background-color: #e5e7eb;
+  border-radius: 999px;
+  background-color: rgba(229, 231, 235, 0.5);
   overflow: hidden;
   position: relative;
 }
 
 .progress-bar-fill {
   height: 100%;
-  border-radius: 4px;
-  transition: width 0.5s ease;
+  border-radius: 999px;
+  transition: width 1s ease;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
 }
 
 .alert-badge {
@@ -129,3 +136,84 @@
 .alert-badge-info {
   @apply bg-blue-100 text-blue-800;
 }
+
+.card {
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+}
+
+.card-gradient {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.6) 100%);
+  backdrop-filter: blur(10px);
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+}
+
+.chart-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.chart-container::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  right: -50px;
+  bottom: -50px;
+  background: radial-gradient(circle at center, rgba(16, 185, 129, 0.03) 0%, transparent 70%);
+  z-index: -1;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #10b981;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0d9668;
+}
+

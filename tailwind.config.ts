@@ -93,6 +93,7 @@ export default {
 			},
 			fontFamily: {
 				'ibm-plex': ['"IBM Plex Sans"', 'sans-serif'],
+				'manrope': ['Manrope', 'sans-serif'],
 			},
 			keyframes: {
 				'accordion-down': {
@@ -110,11 +111,33 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse': {
+					'0%, 100%': {
+						opacity: '1'
+					},
+					'50%': {
+						opacity: '0.7'
+					}
+				},
+				'float': {
+					'0%, 100%': {
+						transform: 'translateY(0)'
+					},
+					'50%': {
+						transform: 'translateY(-10px)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse': 'pulse 3s infinite',
+				'float': 'float 6s ease-in-out infinite'
+			},
+			boxShadow: {
+				'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
+				'glow': '0 0 15px rgba(16, 185, 129, 0.5)'
 			}
 		}
 	},

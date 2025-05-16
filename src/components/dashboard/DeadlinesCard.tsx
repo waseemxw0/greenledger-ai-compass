@@ -32,22 +32,37 @@ export function DeadlinesCard() {
   ];
 
   return (
-    <Card>
-      <CardHeader>
+    <Card className="shadow-soft border-t-4 border-t-purple-500">
+      <CardHeader className="pb-2">
         <CardTitle>Regulatory Deadlines</CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
+      <CardContent className="pt-2">
+        <div className="space-y-3">
           {deadlines.map((deadline) => (
-            <div key={deadline.id} className="flex items-center space-x-3 border-b border-border pb-3 last:border-0 last:pb-0">
-              <div className="bg-secondary rounded-full p-2">
-                <CalendarClock className="h-4 w-4 text-emerald" />
+            <div 
+              key={deadline.id} 
+              className="flex items-center space-x-3 p-3 border border-border rounded-lg hover:bg-muted/20 transition-all duration-200"
+            >
+              <div className={`
+                rounded-full p-2.5
+                ${deadline.daysLeft < 60 ? 'bg-red-100 text-red-600' : 
+                  deadline.daysLeft < 120 ? 'bg-yellow-100 text-yellow-600' : 
+                  'bg-blue-100 text-blue-600'}
+              `}>
+                <CalendarClock className="h-5 w-5" />
               </div>
               <div className="flex-1">
                 <p className="text-sm font-medium">{deadline.title}</p>
                 <p className="text-xs text-muted-foreground">{deadline.date}</p>
               </div>
-              <span className="text-sm font-medium text-emerald">{deadline.daysLeft} days</span>
+              <span className={`
+                text-sm font-medium px-2.5 py-0.5 rounded-full
+                ${deadline.daysLeft < 60 ? 'bg-red-100 text-red-800' : 
+                  deadline.daysLeft < 120 ? 'bg-yellow-100 text-yellow-800' : 
+                  'bg-blue-100 text-blue-800'}
+              `}>
+                {deadline.daysLeft} days
+              </span>
             </div>
           ))}
         </div>
