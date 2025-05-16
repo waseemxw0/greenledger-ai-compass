@@ -1,5 +1,8 @@
+
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Layout } from "@/components/layout/Layout";
 
 const NotFound = () => {
   const location = useLocation();
@@ -12,15 +15,18 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          Return to Home
-        </a>
+    <Layout>
+      <div className="flex flex-col items-center justify-center h-[80vh]">
+        <h1 className="text-7xl font-bold text-emerald mb-4">404</h1>
+        <p className="text-2xl text-gray-600 mb-6">This page doesn't exist yet</p>
+        <p className="text-lg text-gray-500 mb-8 max-w-md text-center">
+          We're still building the ESG platform. This feature will be available soon.
+        </p>
+        <Button className="bg-emerald hover:bg-emerald-dark" asChild>
+          <a href="/">Return to Dashboard</a>
+        </Button>
       </div>
-    </div>
+    </Layout>
   );
 };
 
