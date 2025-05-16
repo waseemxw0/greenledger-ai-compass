@@ -11,7 +11,7 @@ export function Layout({ children, className }: LayoutProps) {
   return (
     <div className="flex w-full min-h-screen">
       <Sidebar />
-      <main className={cn("flex-1 p-6 overflow-auto", className)}>
+      <main className={cn("flex-1 p-6 overflow-auto max-h-screen", className)}>
         {children}
       </main>
     </div>
