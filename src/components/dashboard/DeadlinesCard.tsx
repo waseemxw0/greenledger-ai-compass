@@ -1,17 +1,20 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CalendarClock } from "lucide-react";
+import { CalendarClock, Bell } from "lucide-react";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 interface Deadline {
   id: string;
   title: string;
   date: string;
   daysLeft: number;
+  priority: "high" | "medium" | "low";
 }
 
 export function DeadlinesCard() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [viewAll, setViewAll] = useState(false);
   
   const deadlines: Deadline[] = [
     {
@@ -19,35 +22,59 @@ export function DeadlinesCard() {
       title: "VSME Annual Report",
       date: "June 30, 2025",
       daysLeft: 45,
+      priority: "high"
     },
     {
       id: "2",
       title: "EU CSRD Disclosure",
       date: "September 15, 2025",
       daysLeft: 120,
+      priority: "medium"
     },
     {
       id: "3",
       title: "SEC Climate Disclosure",
       date: "December 1, 2025",
       daysLeft: 195,
+      priority: "low"
     },
+    {
+      id: "4",
+      title: "Carbon Footprint Audit",
+      date: "August 12, 2025",
+      daysLeft: 87,
+      priority: "medium"
+    },
+    {
+      id: "5",
+      title: "Water Usage Report",
+      date: "October 5, 2025",
+      daysLeft: 141,
+      priority: "low"
+    }
   ];
 
+  // Show only first 3 deadlines unless viewAll is true
+  const visibleDeadlines = viewAll ? deadlines : deadlines.slice(0, 3);
+  
   return (
     <Card className="shadow-soft border-t-4 border-t-purple-500 overflow-hidden group backdrop-blur-sm relative">
       <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-      <CardHeader className="pb-2 relative">
+      <CardHeader className="pb-2 relative flex flex-row items-center justify-between">
         <CardTitle className="flex items-center gap-2">
           <span className="bg-purple-100 text-purple-600 p-1.5 rounded-full">
             <CalendarClock className="h-4 w-4" />
           </span>
           <span>Regulatory Deadlines</span>
         </CardTitle>
+        <Button variant="ghost" size="icon" className="h-8 w-8">
+          <Bell className="h-4 w-4" />
+          <span className="sr-only">Notification settings</span>
+        </Button>
       </CardHeader>
       <CardContent className="pt-2 relative">
-        <div className="space-y-3">
-          {deadlines.map((deadline) => (
+        <div className="space-y-3 max-h-[350px] overflow-y-auto scrollbar-thin">
+          {visibleDeadlines.map((deadline) => (
             <div 
               key={deadline.id} 
               className={`flex items-center space-x-3 p-3 border border-border rounded-lg transition-all duration-300 ${
@@ -67,13 +94,20 @@ export function DeadlinesCard() {
               `}>
                 <CalendarClock className="h-5 w-5" />
               </div>
-              <div className="flex-1">
-                <p className={`text-sm font-medium transition-all duration-300 ${
+              <div className="flex-1 min-w-0">
+                <p className={`text-sm font-medium truncate transition-all duration-300 ${
                   hoveredId === deadline.id ? 'text-primary' : ''
                 }`}>{deadline.title}</p>
-                <p className="text-xs text-muted-foreground">{deadline.date}</p>
+                <div className="flex items-center gap-2">
+                  <p className="text-xs text-muted-foreground">{deadline.date}</p>
+                  <span className={`w-1.5 h-1.5 rounded-full ${
+                    deadline.priority === 'high' ? 'bg-red-500 animate-pulse' : 
+                    deadline.priority === 'medium' ? 'bg-yellow-500' : 'bg-blue-500'
+                  }`}></span>
+                  <span className="text-xs text-muted-foreground capitalize">{deadline.priority}</span>
+                </div>
               </div>
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1.5 shrink-0">
                 <span className={`
                   text-sm font-medium px-2.5 py-0.5 rounded-full transition-all duration-300
                   ${deadline.daysLeft < 60 
@@ -85,14 +119,23 @@ export function DeadlinesCard() {
                 `}>
                   {deadline.daysLeft} days
                 </span>
-                <span className={`w-1.5 h-1.5 rounded-full ${
-                  deadline.daysLeft < 60 ? 'bg-red-500 animate-pulse' : 
-                  deadline.daysLeft < 120 ? 'bg-yellow-500' : 'bg-blue-500'
-                }`}></span>
               </div>
             </div>
           ))}
         </div>
+        
+        {deadlines.length > 3 && (
+          <div className="mt-3 text-center">
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              onClick={() => setViewAll(!viewAll)}
+              className="text-xs text-purple-600 hover:text-purple-700 hover:bg-purple-50"
+            >
+              {viewAll ? "Show Less" : `View All (${deadlines.length})`}
+            </Button>
+          </div>
+        )}
       </CardContent>
     </Card>
   );

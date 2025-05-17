@@ -111,7 +111,7 @@ const Index = () => {
                       className="flex-1 h-full flex items-end px-[1px]"
                     >
                       <div 
-                        className={`w-full bg-emerald/70 rounded-t-sm ${i % 4 === 0 ? 'animate-bounce-subtle'}`}
+                        className={`w-full bg-emerald/70 rounded-t-sm ${i % 4 === 0 ? 'animate-bounce-subtle' : ''}`}
                         style={{ 
                           height: `${20 + Math.sin(i/1.5) * 40 + Math.random() * 15}%`,
                           animationDelay: `${i * 0.1}s`
@@ -148,7 +148,7 @@ const Index = () => {
                   <div 
                     key={i} 
                     className={`flex-1 rounded-sm transition-all duration-500 ${
-                      i < 2 ? 'bg-gradient-to-t from-blue-500 to-blue-400' : 'bg-gray-200'
+                      i < 2 ? 'bg-gradient-to-t from-blue-500 to-blue-400' : 'bg-gray-200 dark:bg-gray-700'
                     } ${i === 1 ? 'animate-scale-subtle' : ''}`}
                     style={{ 
                       height: `${100 - (i * 8)}%`,

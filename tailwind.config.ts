@@ -13,8 +13,16 @@ export default {
 	theme: {
 		container: {
 			center: true,
-			padding: '2rem',
+			padding: {
+				DEFAULT: '1rem',
+				sm: '2rem',
+				lg: '2rem'
+			},
 			screens: {
+				sm: '640px',
+				md: '768px',
+				lg: '1024px',
+				xl: '1280px',
 				'2xl': '1400px'
 			}
 		},
@@ -160,6 +168,54 @@ export default {
 						transform: 'scale(1.01)'
 					}
 				},
+				'fadeIn': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'fadeSlideIn': {
+					'from': {
+						opacity: '0',
+						transform: 'translateX(10px)'
+					},
+					'to': {
+						opacity: '1',
+						transform: 'translateX(0)'
+					}
+				},
+				'fadeSlideUp': {
+					'from': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'to': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'spin-slow': {
+					'from': {
+						transform: 'rotate(0deg)'
+					},
+					'to': {
+						transform: 'rotate(360deg)'
+					}
+				},
+				'ripple': {
+					'0%': {
+						transform: 'scale(0)',
+						opacity: '1'
+					},
+					'100%': {
+						transform: 'scale(1)',
+						opacity: '0'
+					}
+				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -169,6 +225,11 @@ export default {
 				'shimmer': 'shimmer 2.5s infinite linear',
 				'bounce-subtle': 'bounce-subtle 3s ease-in-out infinite',
 				'scale-subtle': 'scale-subtle 3s ease-in-out infinite',
+				'fade-in': 'fadeIn 0.6s ease-out forwards',
+				'fade-slide-in': 'fadeSlideIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+				'fade-slide-up': 'fadeSlideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+				'spin-slow': 'spin-slow 8s linear infinite',
+				'ripple': 'ripple 1.5s cubic-bezier(0, 0.5, 0.5, 1) infinite'
 			},
 			boxShadow: {
 				'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
@@ -176,10 +237,25 @@ export default {
 				'card': '0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02)',
 				'card-hover': '0 20px 35px -10px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
 				'intense': '0 20px 30px -10px rgba(0, 0, 0, 0.2), 0 0px 20px 0px rgba(0, 0, 0, 0.1)',
+				'button': '0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.05)',
+				'button-hover': '0 4px 8px rgba(0, 0, 0, 0.15), 0 8px 16px rgba(0, 0, 0, 0.1)',
+				'input': 'inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1)'
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'gradient-shimmer': 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0) 100%)',
+				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
+			},
+			transitionProperty: {
+				'width': 'width',
+				'height': 'height',
+				'spacing': 'margin, padding',
+				'shadow': 'box-shadow'
+			},
+			screens: {
+				'xs': '400px',
+				'touch': { 'raw': '(hover: none)' },
+				'pointer': { 'raw': '(hover: hover)' }
 			}
 		}
 	},
