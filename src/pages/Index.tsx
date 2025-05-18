@@ -20,21 +20,23 @@ const Index = () => {
 
   return (
     <Layout>
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 gap-4 relative">
-        <div>
-          <span className="inline-block px-3 py-1 bg-emerald/10 text-emerald rounded-full text-xs font-medium mb-2">
-            Dashboard Overview
-          </span>
-          <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-emerald to-emerald-light bg-clip-text text-transparent">
-            ESG Dashboard
-            <span className="animate-pulse ml-1">·</span>
-          </h1>
-          <p className="text-muted-foreground mt-1 max-w-md">
-            Track your environmental impact and reporting progress with our comprehensive analytics
-          </p>
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-4 sm:mb-8 gap-4 relative">
+        <div className="w-full md:w-auto">
+          <div className="animate-in fade-in duration-500">
+            <span className="inline-block px-3 py-1 bg-emerald/10 text-emerald rounded-full text-xs font-medium mb-2">
+              Dashboard Overview
+            </span>
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight bg-gradient-to-r from-emerald to-emerald-light bg-clip-text text-transparent">
+              ESG Dashboard
+              <span className="animate-pulse ml-1">·</span>
+            </h1>
+            <p className="text-sm sm:text-base text-muted-foreground mt-1 max-w-md">
+              Track your environmental impact and reporting progress with our comprehensive analytics
+            </p>
+          </div>
         </div>
         <Button 
-          className="bg-emerald hover:bg-emerald-dark glow-button shadow-soft transition-all duration-300 hover:shadow-glow group relative overflow-hidden"
+          className="w-full md:w-auto bg-emerald hover:bg-emerald-dark shadow-soft transition-all duration-300 hover:shadow-glow group relative overflow-hidden"
         >
           <span className="absolute top-0 left-0 w-full h-full bg-gradient-shimmer bg-shimmer animate-shimmer"></span>
           <FileText className="mr-2 h-4 w-4 relative z-10" />
@@ -43,7 +45,7 @@ const Index = () => {
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
         <div 
           className={`transition-all duration-500 ${mounted ? 'opacity-100' : 'opacity-0 translate-y-10'}`} 
           style={{ transitionDelay: "100ms" }}
@@ -70,9 +72,9 @@ const Index = () => {
         </div>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
         <div 
-          className={`md:col-span-2 transition-all duration-500 ${mounted ? 'opacity-100' : 'opacity-0 translate-y-10'}`}
+          className={`lg:col-span-2 transition-all duration-500 ${mounted ? 'opacity-100' : 'opacity-0 translate-y-10'}`}
           style={{ transitionDelay: "500ms" }}
         >
           <EmissionsChart />
@@ -82,20 +84,20 @@ const Index = () => {
           className={`transition-all duration-500 ${mounted ? 'opacity-100' : 'opacity-0 translate-y-10'}`}
           style={{ transitionDelay: "600ms" }}
         >
-          <div className="grid grid-cols-1 gap-6">
-            <div className="glass-card rounded-lg p-6 interactive-card">
+          <div className="grid grid-cols-1 gap-4 sm:gap-6">
+            <div className="glass-card rounded-lg p-4 sm:p-6 interactive-card shadow-soft">
               <div className="flex items-center mb-4">
-                <div className="bg-gradient-to-br from-emerald/20 to-emerald/5 rounded-full p-3 mr-4">
-                  <TrendingUp className="h-6 w-6 text-emerald" />
+                <div className="bg-gradient-to-br from-emerald/20 to-emerald/5 rounded-full p-2 sm:p-3 mr-3 sm:mr-4 shadow-inner">
+                  <TrendingUp className="h-5 w-5 sm:h-6 sm:w-6 text-emerald" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg">Carbon Reduction</h3>
-                  <p className="text-sm text-muted-foreground">YoY comparison</p>
+                  <h3 className="font-semibold text-base sm:text-lg">Carbon Reduction</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground">YoY comparison</p>
                 </div>
               </div>
               <div className="flex items-end gap-2">
-                <span className="text-2xl font-bold">12.6%</span>
-                <span className="text-emerald text-sm flex items-center gap-1">
+                <span className="text-xl sm:text-2xl font-bold">12.6%</span>
+                <span className="text-emerald text-xs sm:text-sm flex items-center gap-1">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 13L12 8L17 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <path d="M12 8V20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -103,7 +105,7 @@ const Index = () => {
                   decrease
                 </span>
               </div>
-              <div className="mt-4 h-24 chart-container">
+              <div className="mt-4 h-16 sm:h-24 chart-container">
                 <div className="bg-gradient-to-t from-emerald/10 to-transparent h-full w-full rounded-md flex items-end">
                   {Array(12).fill(null).map((_, i) => (
                     <div 
@@ -123,19 +125,19 @@ const Index = () => {
               </div>
             </div>
             
-            <div className="glass-card rounded-lg p-6 interactive-card">
+            <div className="glass-card rounded-lg p-4 sm:p-6 interactive-card shadow-soft">
               <div className="flex items-center mb-4">
-                <div className="bg-gradient-to-br from-blue-500/20 to-blue-500/5 rounded-full p-3 mr-4">
-                  <Award className="h-6 w-6 text-blue-500" />
+                <div className="bg-gradient-to-br from-blue-500/20 to-blue-500/5 rounded-full p-2 sm:p-3 mr-3 sm:mr-4 shadow-inner">
+                  <Award className="h-5 w-5 sm:h-6 sm:w-6 text-blue-500" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg">Industry Ranking</h3>
-                  <p className="text-sm text-muted-foreground">In your sector</p>
+                  <h3 className="font-semibold text-base sm:text-lg">Industry Ranking</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground">In your sector</p>
                 </div>
               </div>
               <div className="flex items-end gap-2">
-                <span className="text-2xl font-bold gradient-text">Top 15%</span>
-                <span className="text-blue-500 text-sm flex items-center gap-1">
+                <span className="text-xl sm:text-2xl font-bold gradient-text">Top 15%</span>
+                <span className="text-blue-500 text-xs sm:text-sm flex items-center gap-1">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 13L12 8L17 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <path d="M12 8V20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -143,7 +145,7 @@ const Index = () => {
                   +3 places
                 </span>
               </div>
-              <div className="mt-4 flex gap-1.5 h-8">
+              <div className="mt-4 flex gap-1.5 h-6 sm:h-8">
                 {[...Array(10)].map((_, i) => (
                   <div 
                     key={i} 

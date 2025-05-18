@@ -39,7 +39,7 @@ export function Sidebar({ className }: SidebarProps) {
   return (
     <aside
       className={cn(
-        "flex flex-col bg-sidebar text-sidebar-foreground border-r border-sidebar-border min-h-screen",
+        "flex flex-col bg-sidebar text-sidebar-foreground border-r border-sidebar-border h-screen",
         expanded ? "w-64" : "w-16",
         className
       )}
@@ -47,20 +47,20 @@ export function Sidebar({ className }: SidebarProps) {
       <div className="p-4 flex items-center gap-3">
         {expanded ? (
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 bg-emerald rounded-md flex items-center justify-center">
+            <div className="h-8 w-8 bg-emerald rounded-md flex items-center justify-center shadow-glow">
               <LineChart className="h-5 w-5 text-white" />
             </div>
             <span className="font-semibold text-white">GreenLedger AI™</span>
           </div>
         ) : (
-          <div className="h-8 w-8 bg-emerald rounded-md flex items-center justify-center mx-auto">
+          <div className="h-8 w-8 bg-emerald rounded-md flex items-center justify-center mx-auto shadow-glow">
             <LineChart className="h-5 w-5 text-white" />
           </div>
         )}
         <Button
           variant="ghost"
           size="icon"
-          className="ml-auto text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-foreground"
+          className="ml-auto text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-foreground hidden md:flex"
           onClick={() => setExpanded(!expanded)}
         >
           {expanded ? (
@@ -75,14 +75,14 @@ export function Sidebar({ className }: SidebarProps) {
         </Button>
       </div>
 
-      <div className="mt-6">
+      <div className="mt-6 px-2">
         {expanded ? (
-          <Button variant="ghost" className="w-full justify-start px-4 gap-3 mb-6 bg-emerald hover:bg-emerald-dark text-white">
+          <Button variant="ghost" className="w-full justify-start px-4 gap-3 mb-6 bg-emerald hover:bg-emerald-dark text-white shadow-soft transition-all duration-300 hover:shadow-glow">
             <PlusCircle className="sidebar-icon" />
             <span>New Report</span>
           </Button>
         ) : (
-          <Button variant="ghost" className="w-full flex justify-center p-2 mb-6 bg-emerald hover:bg-emerald-dark text-white">
+          <Button variant="ghost" className="w-full flex justify-center p-2 mb-6 bg-emerald hover:bg-emerald-dark text-white shadow-soft transition-all duration-300 hover:shadow-glow">
             <PlusCircle className="sidebar-icon" />
           </Button>
         )}
@@ -93,8 +93,9 @@ export function Sidebar({ className }: SidebarProps) {
               key={item.title}
               variant="ghost"
               className={cn(
-                "w-full justify-start px-4 py-2 hover:bg-sidebar-accent hover:text-sidebar-foreground",
-                !expanded && "justify-center p-2"
+                "w-full justify-start px-4 py-2 hover:bg-sidebar-accent hover:text-sidebar-foreground transition-all duration-200",
+                !expanded && "justify-center p-2",
+                location.pathname === item.path && "bg-sidebar-accent text-sidebar-foreground font-medium shadow-inner"
               )}
               onClick={() => handleNavigation(item.path)}
             >
@@ -105,14 +106,15 @@ export function Sidebar({ className }: SidebarProps) {
         </div>
       </div>
 
-      <div className="mt-auto space-y-1 mb-4">
+      <div className="mt-auto space-y-1 mb-4 px-2">
         {secondaryNavItems.map((item) => (
           <Button
             key={item.title}
             variant="ghost"
             className={cn(
-              "w-full justify-start px-4 py-2 hover:bg-sidebar-accent hover:text-sidebar-foreground",
-              !expanded && "justify-center p-2"
+              "w-full justify-start px-4 py-2 hover:bg-sidebar-accent hover:text-sidebar-foreground transition-all duration-200",
+              !expanded && "justify-center p-2",
+              location.pathname === item.path && "bg-sidebar-accent text-sidebar-foreground font-medium shadow-inner"
             )}
             onClick={() => handleNavigation(item.path)}
           >
@@ -122,8 +124,8 @@ export function Sidebar({ className }: SidebarProps) {
         ))}
       </div>
 
-      <div className="px-4 py-3 border-t border-sidebar-border flex items-center">
-        <Avatar className="h-8 w-8">
+      <div className="px-4 py-3 border-t border-sidebar-border flex items-center mt-auto">
+        <Avatar className="h-8 w-8 ring-2 ring-emerald/30">
           <AvatarImage src="" alt="Avatar" />
           <AvatarFallback className="text-xs bg-emerald text-white">SM</AvatarFallback>
         </Avatar>

@@ -2,7 +2,7 @@
 import { Sidebar } from "./Sidebar";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface LayoutProps {
@@ -19,22 +19,22 @@ export function Layout({ children, className }: LayoutProps) {
   }, []);
 
   return (
-    <div className="flex w-full min-h-screen relative">
+    <div className="flex w-full min-h-screen bg-background relative">
       {/* Mobile menu button - only visible on mobile */}
       <Button
         variant="ghost"
         size="icon"
-        className="absolute top-4 left-4 z-50 md:hidden"
+        className="fixed top-4 left-4 z-50 md:hidden shadow-lg bg-background/80 backdrop-blur-sm hover:bg-background/90"
         onClick={() => setSidebarOpen(!sidebarOpen)}
         aria-label="Toggle menu"
       >
-        <Menu className="h-5 w-5" />
+        {sidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
       </Button>
 
       {/* Overlay for mobile sidebar */}
       {sidebarOpen && (
         <div 
-          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 md:hidden animate-fade-in"
+          className="fixed inset-0 bg-black/30 backdrop-blur-sm z-30 md:hidden animate-in fade-in"
           onClick={() => setSidebarOpen(false)}
         />
       )}
@@ -42,7 +42,7 @@ export function Layout({ children, className }: LayoutProps) {
       {/* Sidebar with mobile toggle */}
       <div 
         className={cn(
-          "fixed inset-y-0 left-0 z-40 transition-transform duration-300 md:relative md:translate-x-0",
+          "fixed inset-y-0 left-0 z-40 transition-transform duration-300 ease-in-out md:relative md:translate-x-0 shadow-2xl",
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
@@ -52,7 +52,7 @@ export function Layout({ children, className }: LayoutProps) {
       <main 
         className={cn(
           "flex-1 p-4 sm:p-5 lg:p-6 overflow-auto max-h-screen pt-16 md:pt-6", 
-          mounted ? "animate-fade-slide-in" : "opacity-0",
+          mounted ? "animate-in fade-in slide-in-from-bottom-5 duration-500" : "opacity-0",
           className
         )}
       >
