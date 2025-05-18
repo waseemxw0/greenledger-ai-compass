@@ -14,6 +14,7 @@ import { IvyAssistant } from "@/components/IvyAssistant";
 const DataManager = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedFiles, setSelectedFiles] = useState<string[]>([]);
+  const [activeTab, setActiveTab] = useState<string>("files");
 
   // Mock data
   const mockFiles = [
@@ -143,7 +144,7 @@ const DataManager = () => {
         <div className="lg:col-span-4">
           <Card className="h-full">
             <CardHeader className="pb-0">
-              <Tabs defaultValue="files">
+              <Tabs defaultValue="files" value={activeTab} onValueChange={setActiveTab}>
                 <TabsList>
                   <TabsTrigger value="files">Files</TabsTrigger>
                   <TabsTrigger value="extracted-data">Extracted Data</TabsTrigger>
@@ -183,64 +184,66 @@ const DataManager = () => {
                 </div>
               </div>
 
-              <TabsContent value="files" className="m-0">
-                <div className="border rounded-md">
-                  <div className="grid grid-cols-8 gap-2 p-3 border-b bg-muted/30 text-sm font-medium">
-                    <div className="col-span-1">
-                      <Checkbox id="select-all" onCheckedChange={selectAllFiles} checked={selectedFiles.length === filteredFiles.length && filteredFiles.length > 0} />
-                    </div>
-                    <div className="col-span-3">Name</div>
-                    <div className="col-span-1">Type</div>
-                    <div className="col-span-2">Date Added</div>
-                    <div className="col-span-1">Size</div>
-                  </div>
-
-                  <div className="divide-y">
-                    {filteredFiles.length > 0 ? (
-                      filteredFiles.map((file) => (
-                        <div key={file.id} className="grid grid-cols-8 gap-2 p-3 items-center hover:bg-muted/20">
-                          <div className="col-span-1">
-                            <Checkbox id={`file-${file.id}`} checked={selectedFiles.includes(file.id)} onCheckedChange={() => toggleFileSelection(file.id)} />
-                          </div>
-                          <div className="col-span-3 flex items-center gap-2">
-                            {getFileTypeIcon(file.type)}
-                            <span className="truncate">{file.name}</span>
-                          </div>
-                          <div className="col-span-1 capitalize">{file.type}</div>
-                          <div className="col-span-2">{new Date(file.date).toLocaleDateString()}</div>
-                          <div className="col-span-1">{file.size}</div>
-                        </div>
-                      ))
-                    ) : (
-                      <div className="p-8 text-center">
-                        <p className="text-muted-foreground">No files found matching your search criteria.</p>
+              <Tabs value={activeTab}>
+                <TabsContent value="files" className="m-0">
+                  <div className="border rounded-md">
+                    <div className="grid grid-cols-8 gap-2 p-3 border-b bg-muted/30 text-sm font-medium">
+                      <div className="col-span-1">
+                        <Checkbox id="select-all" onCheckedChange={selectAllFiles} checked={selectedFiles.length === filteredFiles.length && filteredFiles.length > 0} />
                       </div>
-                    )}
+                      <div className="col-span-3">Name</div>
+                      <div className="col-span-1">Type</div>
+                      <div className="col-span-2">Date Added</div>
+                      <div className="col-span-1">Size</div>
+                    </div>
+
+                    <div className="divide-y">
+                      {filteredFiles.length > 0 ? (
+                        filteredFiles.map((file) => (
+                          <div key={file.id} className="grid grid-cols-8 gap-2 p-3 items-center hover:bg-muted/20">
+                            <div className="col-span-1">
+                              <Checkbox id={`file-${file.id}`} checked={selectedFiles.includes(file.id)} onCheckedChange={() => toggleFileSelection(file.id)} />
+                            </div>
+                            <div className="col-span-3 flex items-center gap-2">
+                              {getFileTypeIcon(file.type)}
+                              <span className="truncate">{file.name}</span>
+                            </div>
+                            <div className="col-span-1 capitalize">{file.type}</div>
+                            <div className="col-span-2">{new Date(file.date).toLocaleDateString()}</div>
+                            <div className="col-span-1">{file.size}</div>
+                          </div>
+                        ))
+                      ) : (
+                        <div className="p-8 text-center">
+                          <p className="text-muted-foreground">No files found matching your search criteria.</p>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </div>
-              </TabsContent>
+                </TabsContent>
 
-              <TabsContent value="extracted-data" className="m-0">
-                <div className="p-8 text-center">
-                  <FileText className="h-16 w-16 text-muted-foreground/30 mx-auto mb-4" />
-                  <h3 className="text-xl font-medium mb-2">Data Extraction</h3>
-                  <p className="text-muted-foreground max-w-md mx-auto mb-4">
-                    Select files to automatically extract data points for ESG reporting
-                  </p>
-                  <Button className="bg-emerald hover:bg-emerald-dark">Extract Data From Files</Button>
-                </div>
-              </TabsContent>
+                <TabsContent value="extracted-data" className="m-0">
+                  <div className="p-8 text-center">
+                    <FileText className="h-16 w-16 text-muted-foreground/30 mx-auto mb-4" />
+                    <h3 className="text-xl font-medium mb-2">Data Extraction</h3>
+                    <p className="text-muted-foreground max-w-md mx-auto mb-4">
+                      Select files to automatically extract data points for ESG reporting
+                    </p>
+                    <Button className="bg-emerald hover:bg-emerald-dark">Extract Data From Files</Button>
+                  </div>
+                </TabsContent>
 
-              <TabsContent value="analysis" className="m-0">
-                <div className="p-8 text-center">
-                  <FileText className="h-16 w-16 text-muted-foreground/30 mx-auto mb-4" />
-                  <h3 className="text-xl font-medium mb-2">Data Analysis</h3>
-                  <p className="text-muted-foreground max-w-md mx-auto mb-4">
-                    Upload data files to analyze trends and gain insights for your ESG reporting
-                  </p>
-                  <Button className="bg-emerald hover:bg-emerald-dark">Start Analysis</Button>
-                </div>
-              </TabsContent>
+                <TabsContent value="analysis" className="m-0">
+                  <div className="p-8 text-center">
+                    <FileText className="h-16 w-16 text-muted-foreground/30 mx-auto mb-4" />
+                    <h3 className="text-xl font-medium mb-2">Data Analysis</h3>
+                    <p className="text-muted-foreground max-w-md mx-auto mb-4">
+                      Upload data files to analyze trends and gain insights for your ESG reporting
+                    </p>
+                    <Button className="bg-emerald hover:bg-emerald-dark">Start Analysis</Button>
+                  </div>
+                </TabsContent>
+              </Tabs>
             </CardContent>
           </Card>
         </div>
