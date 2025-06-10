@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -17,20 +18,20 @@ const Settings = () => {
     <Layout>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Settings</h1>
-          <p className="text-muted-foreground">
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight">Settings</h1>
+          <p className="text-muted-foreground text-sm md:text-base">
             Manage your account and application preferences
           </p>
         </div>
       </div>
 
       <Tabs defaultValue="profile" className="mb-6">
-        <TabsList className="mb-4">
-          <TabsTrigger value="profile">Profile</TabsTrigger>
-          <TabsTrigger value="company">Company</TabsTrigger>
-          <TabsTrigger value="notifications">Notifications</TabsTrigger>
-          <TabsTrigger value="integrations">Integrations</TabsTrigger>
-          <TabsTrigger value="billing">Billing</TabsTrigger>
+        <TabsList className="mb-4 grid grid-cols-2 md:grid-cols-5 w-full">
+          <TabsTrigger value="profile" className="text-xs sm:text-sm">Profile</TabsTrigger>
+          <TabsTrigger value="company" className="text-xs sm:text-sm">Company</TabsTrigger>
+          <TabsTrigger value="notifications" className="text-xs sm:text-sm">Notifications</TabsTrigger>
+          <TabsTrigger value="integrations" className="text-xs sm:text-sm">Integrations</TabsTrigger>
+          <TabsTrigger value="billing" className="text-xs sm:text-sm">Billing</TabsTrigger>
         </TabsList>
         
         <TabsContent value="profile" className="m-0 space-y-6">
@@ -40,12 +41,12 @@ const Settings = () => {
               <CardDescription>Update your personal details</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
-              <div className="flex items-center gap-6">
+              <div className="flex flex-col sm:flex-row items-center gap-6">
                 <Avatar className="h-20 w-20">
                   <AvatarImage src="" />
                   <AvatarFallback className="text-xl bg-emerald text-white">SM</AvatarFallback>
                 </Avatar>
-                <div className="space-y-2">
+                <div className="space-y-2 text-center sm:text-left">
                   <Button variant="outline">Change Avatar</Button>
                   <p className="text-xs text-muted-foreground">
                     JPG, GIF or PNG. Max size 2MB.
@@ -95,7 +96,7 @@ const Settings = () => {
                   <Label htmlFor="new-password">New Password</Label>
                   <Input id="new-password" type="password" />
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-2 md:col-span-2">
                   <Label htmlFor="confirm-password">Confirm Password</Label>
                   <Input id="confirm-password" type="password" />
                 </div>
@@ -291,48 +292,48 @@ const Settings = () => {
               <div className="space-y-6">
                 <div className="space-y-4">
                   <h3 className="text-lg font-medium">Cloud Storage</h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <Card>
                       <CardContent className="p-4">
-                        <div className="flex items-center justify-between">
+                        <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
                           <div className="flex items-center gap-3">
                             <img src="https://cdn.worldvectorlogo.com/logos/google-drive.svg" alt="Google Drive" className="h-8 w-8" />
-                            <div>
+                            <div className="text-center sm:text-left">
                               <h4 className="font-medium">Google Drive</h4>
                               <p className="text-xs text-muted-foreground">Not connected</p>
                             </div>
                           </div>
-                          <Button variant="outline" size="sm">Connect</Button>
+                          <Button variant="outline" size="sm" className="w-full sm:w-auto">Connect</Button>
                         </div>
                       </CardContent>
                     </Card>
                     
                     <Card>
                       <CardContent className="p-4">
-                        <div className="flex items-center justify-between">
+                        <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
                           <div className="flex items-center gap-3">
                             <img src="https://cdn.worldvectorlogo.com/logos/dropbox-1.svg" alt="Dropbox" className="h-8 w-8" />
-                            <div>
+                            <div className="text-center sm:text-left">
                               <h4 className="font-medium">Dropbox</h4>
                               <p className="text-xs text-muted-foreground">Not connected</p>
                             </div>
                           </div>
-                          <Button variant="outline" size="sm">Connect</Button>
+                          <Button variant="outline" size="sm" className="w-full sm:w-auto">Connect</Button>
                         </div>
                       </CardContent>
                     </Card>
                     
                     <Card>
                       <CardContent className="p-4">
-                        <div className="flex items-center justify-between">
+                        <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
                           <div className="flex items-center gap-3">
                             <img src="https://cdn.worldvectorlogo.com/logos/microsoft-onedrive-1.svg" alt="OneDrive" className="h-8 w-8" />
-                            <div>
+                            <div className="text-center sm:text-left">
                               <h4 className="font-medium">OneDrive</h4>
                               <p className="text-xs text-muted-foreground">Not connected</p>
                             </div>
                           </div>
-                          <Button variant="outline" size="sm">Connect</Button>
+                          <Button variant="outline" size="sm" className="w-full sm:w-auto">Connect</Button>
                         </div>
                       </CardContent>
                     </Card>
@@ -343,48 +344,48 @@ const Settings = () => {
                 
                 <div className="space-y-4">
                   <h3 className="text-lg font-medium">Business Tools</h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <Card>
                       <CardContent className="p-4">
-                        <div className="flex items-center justify-between">
+                        <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
                           <div className="flex items-center gap-3">
                             <img src="https://cdn.worldvectorlogo.com/logos/quickbooks-2.svg" alt="QuickBooks" className="h-8 w-8" />
-                            <div>
+                            <div className="text-center sm:text-left">
                               <h4 className="font-medium">QuickBooks</h4>
                               <p className="text-xs text-muted-foreground">Connected</p>
                             </div>
                           </div>
-                          <Button variant="outline" size="sm">Disconnect</Button>
+                          <Button variant="outline" size="sm" className="w-full sm:w-auto">Disconnect</Button>
                         </div>
                       </CardContent>
                     </Card>
                     
                     <Card>
                       <CardContent className="p-4">
-                        <div className="flex items-center justify-between">
+                        <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
                           <div className="flex items-center gap-3">
                             <img src="https://cdn.worldvectorlogo.com/logos/zapier-1.svg" alt="Zapier" className="h-8 w-8" />
-                            <div>
+                            <div className="text-center sm:text-left">
                               <h4 className="font-medium">Zapier</h4>
                               <p className="text-xs text-muted-foreground">Not connected</p>
                             </div>
                           </div>
-                          <Button variant="outline" size="sm">Connect</Button>
+                          <Button variant="outline" size="sm" className="w-full sm:w-auto">Connect</Button>
                         </div>
                       </CardContent>
                     </Card>
                     
                     <Card>
                       <CardContent className="p-4">
-                        <div className="flex items-center justify-between">
+                        <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
                           <div className="flex items-center gap-3">
                             <img src="https://cdn.worldvectorlogo.com/logos/slack-new-2019.svg" alt="Slack" className="h-8 w-8" />
-                            <div>
+                            <div className="text-center sm:text-left">
                               <h4 className="font-medium">Slack</h4>
                               <p className="text-xs text-muted-foreground">Not connected</p>
                             </div>
                           </div>
-                          <Button variant="outline" size="sm">Connect</Button>
+                          <Button variant="outline" size="sm" className="w-full sm:w-auto">Connect</Button>
                         </div>
                       </CardContent>
                     </Card>
@@ -392,7 +393,7 @@ const Settings = () => {
                 </div>
                 
                 <div className="pt-4">
-                  <Button className="bg-emerald hover:bg-emerald-dark">
+                  <Button className="bg-emerald hover:bg-emerald-dark w-full sm:w-auto">
                     <Plus className="mr-2 h-4 w-4" />
                     Add New Integration
                   </Button>

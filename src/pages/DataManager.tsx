@@ -70,48 +70,48 @@ const DataManager = () => {
 
   return (
     <Layout>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Data Manager</h1>
-          <p className="text-muted-foreground">
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight">Data Manager</h1>
+          <p className="text-muted-foreground text-sm md:text-base">
             Organize and analyze your ESG-related documents and data
           </p>
         </div>
-        <Button className="bg-emerald hover:bg-emerald-dark">
+        <Button className="bg-emerald hover:bg-emerald-dark w-full sm:w-auto">
           <Plus className="mr-2 h-4 w-4" />
           Import Data
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-        <div className="lg:col-span-1 space-y-6">
+      <div className="grid grid-cols-1 xl:grid-cols-5 gap-6">
+        <div className="xl:col-span-1 space-y-6">
           <Card>
             <CardHeader>
-              <CardTitle>Data Sources</CardTitle>
+              <CardTitle className="text-lg">Data Sources</CardTitle>
             </CardHeader>
             <CardContent className="px-2">
               <div className="space-y-1">
-                <Button variant="ghost" className="w-full justify-start">
+                <Button variant="ghost" className="w-full justify-start text-sm">
                   <Folder className="mr-2 h-4 w-4" />
                   All Files
                 </Button>
-                <Button variant="ghost" className="w-full justify-start text-emerald">
+                <Button variant="ghost" className="w-full justify-start text-emerald text-sm">
                   <Folder className="mr-2 h-4 w-4 text-emerald" />
                   Utility Bills
                 </Button>
-                <Button variant="ghost" className="w-full justify-start">
+                <Button variant="ghost" className="w-full justify-start text-sm">
                   <Folder className="mr-2 h-4 w-4" />
                   Vehicle Logs
                 </Button>
-                <Button variant="ghost" className="w-full justify-start">
+                <Button variant="ghost" className="w-full justify-start text-sm">
                   <Folder className="mr-2 h-4 w-4" />
                   Travel Receipts
                 </Button>
-                <Button variant="ghost" className="w-full justify-start">
+                <Button variant="ghost" className="w-full justify-start text-sm">
                   <Folder className="mr-2 h-4 w-4" />
                   Supplier Data
                 </Button>
-                <Button variant="ghost" className="w-full justify-start">
+                <Button variant="ghost" className="w-full justify-start text-sm">
                   <Folder className="mr-2 h-4 w-4" />
                   Waste Management
                 </Button>
@@ -121,39 +121,39 @@ const DataManager = () => {
 
           <Card>
             <CardHeader>
-              <CardTitle>Integrations</CardTitle>
-              <CardDescription>Connect to external sources</CardDescription>
+              <CardTitle className="text-lg">Integrations</CardTitle>
+              <CardDescription className="text-sm">Connect to external sources</CardDescription>
             </CardHeader>
             <CardContent className="space-y-2">
-              <Button variant="outline" className="w-full justify-start">
+              <Button variant="outline" className="w-full justify-start text-sm p-2">
                 <img src="https://cdn.worldvectorlogo.com/logos/google-drive.svg" alt="Google Drive" className="h-4 w-4 mr-2" />
-                Connect Google Drive
+                <span className="truncate">Google Drive</span>
               </Button>
-              <Button variant="outline" className="w-full justify-start">
+              <Button variant="outline" className="w-full justify-start text-sm p-2">
                 <img src="https://cdn.worldvectorlogo.com/logos/dropbox-1.svg" alt="Dropbox" className="h-4 w-4 mr-2" />
-                Connect Dropbox
+                <span className="truncate">Dropbox</span>
               </Button>
-              <Button variant="outline" className="w-full justify-start">
+              <Button variant="outline" className="w-full justify-start text-sm p-2">
                 <img src="https://cdn.worldvectorlogo.com/logos/microsoft-onedrive-1.svg" alt="OneDrive" className="h-4 w-4 mr-2" />
-                Connect OneDrive
+                <span className="truncate">OneDrive</span>
               </Button>
             </CardContent>
           </Card>
         </div>
 
-        <div className="lg:col-span-4">
+        <div className="xl:col-span-4">
           <Card className="h-full">
             <CardHeader className="pb-0">
               <Tabs defaultValue="files" value={activeTab} onValueChange={setActiveTab}>
-                <TabsList>
-                  <TabsTrigger value="files">Files</TabsTrigger>
-                  <TabsTrigger value="extracted-data">Extracted Data</TabsTrigger>
-                  <TabsTrigger value="analysis">Analysis</TabsTrigger>
+                <TabsList className="grid w-full grid-cols-3">
+                  <TabsTrigger value="files" className="text-xs sm:text-sm">Files</TabsTrigger>
+                  <TabsTrigger value="extracted-data" className="text-xs sm:text-sm">Data</TabsTrigger>
+                  <TabsTrigger value="analysis" className="text-xs sm:text-sm">Analysis</TabsTrigger>
                 </TabsList>
               </Tabs>
             </CardHeader>
             <CardContent>
-              <div className="mb-6 flex flex-col sm:flex-row gap-4">
+              <div className="mb-6 flex flex-col gap-4">
                 <div className="relative flex-1">
                   <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                   <Input
@@ -163,9 +163,9 @@ const DataManager = () => {
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
                 </div>
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
                   <Select>
-                    <SelectTrigger className="w-[180px]">
+                    <SelectTrigger className="w-full sm:w-[180px]">
                       <SelectValue placeholder="Filter by type" />
                     </SelectTrigger>
                     <SelectContent>
@@ -177,7 +177,7 @@ const DataManager = () => {
                       <SelectItem value="waste">Waste Management</SelectItem>
                     </SelectContent>
                   </Select>
-                  <Button variant="outline">
+                  <Button variant="outline" className="w-full sm:w-auto">
                     <Calendar className="h-4 w-4 mr-2" />
                     Date
                   </Button>
@@ -186,10 +186,15 @@ const DataManager = () => {
 
               <Tabs value={activeTab}>
                 <TabsContent value="files" className="m-0">
-                  <div className="border rounded-md">
-                    <div className="grid grid-cols-8 gap-2 p-3 border-b bg-muted/30 text-sm font-medium">
+                  <div className="border rounded-md overflow-hidden">
+                    {/* Desktop Table Header */}
+                    <div className="hidden md:grid grid-cols-8 gap-2 p-3 border-b bg-muted/30 text-sm font-medium">
                       <div className="col-span-1">
-                        <Checkbox id="select-all" onCheckedChange={selectAllFiles} checked={selectedFiles.length === filteredFiles.length && filteredFiles.length > 0} />
+                        <Checkbox 
+                          id="select-all" 
+                          onCheckedChange={selectAllFiles} 
+                          checked={selectedFiles.length === filteredFiles.length && filteredFiles.length > 0} 
+                        />
                       </div>
                       <div className="col-span-3">Name</div>
                       <div className="col-span-1">Type</div>
@@ -197,20 +202,65 @@ const DataManager = () => {
                       <div className="col-span-1">Size</div>
                     </div>
 
+                    {/* Mobile Header */}
+                    <div className="md:hidden flex items-center justify-between p-3 border-b bg-muted/30 text-sm font-medium">
+                      <div className="flex items-center gap-2">
+                        <Checkbox 
+                          id="select-all-mobile" 
+                          onCheckedChange={selectAllFiles} 
+                          checked={selectedFiles.length === filteredFiles.length && filteredFiles.length > 0} 
+                        />
+                        <span>Files</span>
+                      </div>
+                      <span className="text-xs text-muted-foreground">{filteredFiles.length} files</span>
+                    </div>
+
                     <div className="divide-y">
                       {filteredFiles.length > 0 ? (
                         filteredFiles.map((file) => (
-                          <div key={file.id} className="grid grid-cols-8 gap-2 p-3 items-center hover:bg-muted/20">
-                            <div className="col-span-1">
-                              <Checkbox id={`file-${file.id}`} checked={selectedFiles.includes(file.id)} onCheckedChange={() => toggleFileSelection(file.id)} />
+                          <div key={file.id}>
+                            {/* Desktop Layout */}
+                            <div className="hidden md:grid grid-cols-8 gap-2 p-3 items-center hover:bg-muted/20">
+                              <div className="col-span-1">
+                                <Checkbox 
+                                  id={`file-${file.id}`} 
+                                  checked={selectedFiles.includes(file.id)} 
+                                  onCheckedChange={() => toggleFileSelection(file.id)} 
+                                />
+                              </div>
+                              <div className="col-span-3 flex items-center gap-2">
+                                {getFileTypeIcon(file.type)}
+                                <span className="truncate text-sm">{file.name}</span>
+                              </div>
+                              <div className="col-span-1 capitalize text-sm">{file.type}</div>
+                              <div className="col-span-2 text-sm">{new Date(file.date).toLocaleDateString()}</div>
+                              <div className="col-span-1 text-sm">{file.size}</div>
                             </div>
-                            <div className="col-span-3 flex items-center gap-2">
-                              {getFileTypeIcon(file.type)}
-                              <span className="truncate">{file.name}</span>
+
+                            {/* Mobile Layout */}
+                            <div className="md:hidden p-3 hover:bg-muted/20">
+                              <div className="flex items-start gap-3">
+                                <Checkbox 
+                                  id={`file-mobile-${file.id}`} 
+                                  checked={selectedFiles.includes(file.id)} 
+                                  onCheckedChange={() => toggleFileSelection(file.id)}
+                                  className="mt-1"
+                                />
+                                <div className="flex-1 min-w-0">
+                                  <div className="flex items-center gap-2 mb-1">
+                                    {getFileTypeIcon(file.type)}
+                                    <span className="text-sm font-medium truncate">{file.name}</span>
+                                  </div>
+                                  <div className="flex items-center justify-between text-xs text-muted-foreground">
+                                    <span className="capitalize">{file.type}</span>
+                                    <span>{file.size}</span>
+                                  </div>
+                                  <div className="text-xs text-muted-foreground mt-1">
+                                    {new Date(file.date).toLocaleDateString()}
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                            <div className="col-span-1 capitalize">{file.type}</div>
-                            <div className="col-span-2">{new Date(file.date).toLocaleDateString()}</div>
-                            <div className="col-span-1">{file.size}</div>
                           </div>
                         ))
                       ) : (
@@ -252,8 +302,8 @@ const DataManager = () => {
       <div className="mt-6">
         <Card>
           <CardHeader>
-            <CardTitle>Upload New Files</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-lg">Upload New Files</CardTitle>
+            <CardDescription className="text-sm">
               Upload your ESG-related documents for automatic data extraction
             </CardDescription>
           </CardHeader>
