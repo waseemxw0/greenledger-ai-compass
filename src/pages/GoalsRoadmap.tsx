@@ -88,38 +88,38 @@ const GoalsRoadmap = () => {
 
   return (
     <Layout>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Goals & Roadmap</h1>
-          <p className="text-muted-foreground">
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight">Goals & Roadmap</h1>
+          <p className="text-muted-foreground text-sm md:text-base">
             Track and manage your sustainability goals and action plan
           </p>
         </div>
-        <Button className="bg-emerald hover:bg-emerald-dark">
+        <Button className="bg-emerald hover:bg-emerald-dark w-full sm:w-auto">
           <Plus className="mr-2 h-4 w-4" />
           New Goal
         </Button>
       </div>
 
       <Tabs defaultValue="goals" className="mb-6">
-        <TabsList className="mb-4">
-          <TabsTrigger value="goals">Sustainability Goals</TabsTrigger>
-          <TabsTrigger value="actions">Recommended Actions</TabsTrigger>
-          <TabsTrigger value="offsets">Carbon Offsets</TabsTrigger>
+        <TabsList className="mb-4 w-full grid grid-cols-1 sm:grid-cols-3 h-auto">
+          <TabsTrigger value="goals" className="text-xs sm:text-sm py-2">Sustainability Goals</TabsTrigger>
+          <TabsTrigger value="actions" className="text-xs sm:text-sm py-2">Recommended Actions</TabsTrigger>
+          <TabsTrigger value="offsets" className="text-xs sm:text-sm py-2">Carbon Offsets</TabsTrigger>
         </TabsList>
         
         <TabsContent value="goals" className="m-0">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6">
             {sustainabilityGoals.map((goal) => (
-              <Card key={goal.id}>
-                <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <CardTitle className="text-xl">{goal.title}</CardTitle>
-                    <div className="text-lg font-semibold text-emerald px-2 py-0.5 bg-emerald/10 rounded-full">
+              <Card key={goal.id} className="h-fit">
+                <CardHeader className="pb-3">
+                  <div className="flex justify-between items-start gap-2">
+                    <CardTitle className="text-lg leading-tight">{goal.title}</CardTitle>
+                    <div className="text-sm font-semibold text-emerald px-2 py-0.5 bg-emerald/10 rounded-full flex-shrink-0">
                       {goal.targetYear}
                     </div>
                   </div>
-                  <CardDescription>{goal.description}</CardDescription>
+                  <CardDescription className="text-sm">{goal.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="pb-0">
                   <div className="mb-4">
@@ -134,14 +134,14 @@ const GoalsRoadmap = () => {
                     <h4 className="text-sm font-medium mb-2">Milestones</h4>
                     {goal.milestones.map((milestone) => (
                       <div key={milestone.id} className="flex items-start gap-2">
-                        <div className={`rounded-full p-0.5 ${milestone.completed ? 'bg-emerald text-white' : 'border'}`}>
+                        <div className={`rounded-full p-0.5 mt-0.5 flex-shrink-0 ${milestone.completed ? 'bg-emerald text-white' : 'border'}`}>
                           {milestone.completed ? (
                             <Check className="h-3 w-3" />
                           ) : (
                             <div className="h-3 w-3" />
                           )}
                         </div>
-                        <span className={`text-sm ${milestone.completed ? 'line-through text-muted-foreground' : ''}`}>
+                        <span className={`text-sm leading-tight ${milestone.completed ? 'line-through text-muted-foreground' : ''}`}>
                           {milestone.title}
                         </span>
                       </div>
@@ -149,28 +149,28 @@ const GoalsRoadmap = () => {
                   </div>
                 </CardContent>
                 <CardFooter className="pt-4">
-                  <Button variant="outline" className="w-full">
+                  <Button variant="outline" className="w-full text-sm">
                     Update Progress
                   </Button>
                 </CardFooter>
               </Card>
             ))}
             
-            <Card className="border-dashed">
-              <CardHeader>
-                <CardTitle className="text-xl">Add New Goal</CardTitle>
-                <CardDescription>Set a new sustainability target for your organization</CardDescription>
+            <Card className="border-dashed h-fit">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg">Add New Goal</CardTitle>
+                <CardDescription className="text-sm">Set a new sustainability target for your organization</CardDescription>
               </CardHeader>
-              <CardContent className="flex flex-col items-center justify-center py-8">
-                <div className="rounded-full bg-muted p-4 mb-4">
-                  <Goal className="h-8 w-8 text-emerald" />
+              <CardContent className="flex flex-col items-center justify-center py-6">
+                <div className="rounded-full bg-muted p-3 mb-3">
+                  <Goal className="h-6 w-6 text-emerald" />
                 </div>
-                <p className="text-center text-muted-foreground mb-4">
+                <p className="text-center text-muted-foreground text-sm mb-4">
                   Create a new goal to track your organization's sustainability journey
                 </p>
               </CardContent>
               <CardFooter>
-                <Button className="w-full bg-emerald hover:bg-emerald-dark">
+                <Button className="w-full bg-emerald hover:bg-emerald-dark text-sm">
                   <Plus className="mr-2 h-4 w-4" />
                   Set New Goal
                 </Button>
@@ -180,60 +180,60 @@ const GoalsRoadmap = () => {
         </TabsContent>
 
         <TabsContent value="actions" className="m-0">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
             <div className="lg:col-span-1">
               <Card>
-                <CardHeader>
-                  <CardTitle>Action Filters</CardTitle>
-                  <CardDescription>Filter recommended actions</CardDescription>
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg">Action Filters</CardTitle>
+                  <CardDescription className="text-sm">Filter recommended actions</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
                     <h4 className="text-sm font-medium">Impact Level</h4>
                     <div className="flex flex-wrap gap-2">
-                      <Button variant="outline" className="text-xs" size="sm">All</Button>
-                      <Button variant="outline" className="text-xs bg-green-50" size="sm">High Impact</Button>
-                      <Button variant="outline" className="text-xs" size="sm">Medium Impact</Button>
-                      <Button variant="outline" className="text-xs" size="sm">Low Impact</Button>
+                      <Button variant="outline" className="text-xs h-8" size="sm">All</Button>
+                      <Button variant="outline" className="text-xs h-8 bg-green-50" size="sm">High Impact</Button>
+                      <Button variant="outline" className="text-xs h-8" size="sm">Medium Impact</Button>
+                      <Button variant="outline" className="text-xs h-8" size="sm">Low Impact</Button>
                     </div>
                   </div>
                   
                   <div className="space-y-2">
                     <h4 className="text-sm font-medium">Implementation Effort</h4>
                     <div className="flex flex-wrap gap-2">
-                      <Button variant="outline" className="text-xs" size="sm">All</Button>
-                      <Button variant="outline" className="text-xs bg-green-50" size="sm">Low Effort</Button>
-                      <Button variant="outline" className="text-xs" size="sm">Medium Effort</Button>
-                      <Button variant="outline" className="text-xs" size="sm">High Effort</Button>
+                      <Button variant="outline" className="text-xs h-8" size="sm">All</Button>
+                      <Button variant="outline" className="text-xs h-8 bg-green-50" size="sm">Low Effort</Button>
+                      <Button variant="outline" className="text-xs h-8" size="sm">Medium Effort</Button>
+                      <Button variant="outline" className="text-xs h-8" size="sm">High Effort</Button>
                     </div>
                   </div>
                   
                   <div className="space-y-2">
                     <h4 className="text-sm font-medium">Emission Scope</h4>
                     <div className="flex flex-wrap gap-2">
-                      <Button variant="outline" className="text-xs" size="sm">All Scopes</Button>
-                      <Button variant="outline" className="text-xs" size="sm">Scope 1</Button>
-                      <Button variant="outline" className="text-xs" size="sm">Scope 2</Button>
-                      <Button variant="outline" className="text-xs" size="sm">Scope 3</Button>
+                      <Button variant="outline" className="text-xs h-8" size="sm">All Scopes</Button>
+                      <Button variant="outline" className="text-xs h-8" size="sm">Scope 1</Button>
+                      <Button variant="outline" className="text-xs h-8" size="sm">Scope 2</Button>
+                      <Button variant="outline" className="text-xs h-8" size="sm">Scope 3</Button>
                     </div>
                   </div>
                 </CardContent>
               </Card>
             </div>
             
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-3">
               <Card>
-                <CardHeader>
-                  <CardTitle>Recommended Actions</CardTitle>
-                  <CardDescription>AI-suggested sustainability initiatives based on your data</CardDescription>
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg">Recommended Actions</CardTitle>
+                  <CardDescription className="text-sm">AI-suggested sustainability initiatives based on your data</CardDescription>
                 </CardHeader>
                 <CardContent className="p-0">
                   <div className="divide-y">
                     {suggestedActions.map((action) => (
                       <div key={action.id} className="p-4 hover:bg-muted/20">
-                        <div className="flex justify-between items-start mb-1">
-                          <h3 className="font-medium">{action.title}</h3>
-                          <div className="flex items-center gap-2">
+                        <div className="flex flex-col sm:flex-row justify-between items-start gap-2 mb-2">
+                          <h3 className="font-medium text-base">{action.title}</h3>
+                          <div className="flex flex-wrap items-center gap-2">
                             <span className={`text-xs px-2 py-0.5 rounded-full ${
                               action.impact === "HIGH" ? "bg-green-100 text-green-800" :
                               action.impact === "MEDIUM" ? "bg-yellow-100 text-yellow-800" :
@@ -250,13 +250,13 @@ const GoalsRoadmap = () => {
                             </span>
                           </div>
                         </div>
-                        <p className="text-muted-foreground mb-2 text-sm">{action.description}</p>
-                        <div className="flex justify-between text-sm">
+                        <p className="text-muted-foreground mb-3 text-sm leading-relaxed">{action.description}</p>
+                        <div className="flex flex-col sm:flex-row justify-between text-sm gap-2 mb-3">
                           <span>Est. Savings: {action.estimatedSavings}</span>
                           <span>Est. Cost: {action.estimatedCost}</span>
                         </div>
-                        <div className="flex justify-end mt-2">
-                          <Button variant="outline" size="sm" className="text-xs mr-2">Details</Button>
+                        <div className="flex flex-col sm:flex-row justify-end gap-2">
+                          <Button variant="outline" size="sm" className="text-xs">Details</Button>
                           <Button size="sm" className="text-xs bg-emerald hover:bg-emerald-dark">Add to Plan</Button>
                         </div>
                       </div>
@@ -275,10 +275,10 @@ const GoalsRoadmap = () => {
               <CardDescription>Browse verified carbon offset projects to neutralize your emissions</CardDescription>
             </CardHeader>
             <CardContent className="p-0">
-              <div className="text-center p-16">
-                <Goal className="h-16 w-16 text-muted-foreground/30 mx-auto mb-4" />
+              <div className="text-center p-12 lg:p-16">
+                <Goal className="h-12 w-12 lg:h-16 lg:w-16 text-muted-foreground/30 mx-auto mb-4" />
                 <h3 className="text-xl font-medium mb-2">Carbon Offset Marketplace</h3>
-                <p className="text-muted-foreground max-w-md mx-auto mb-6">
+                <p className="text-muted-foreground max-w-md mx-auto mb-6 text-sm lg:text-base">
                   Connect with verified carbon offset projects to balance your unavoidable emissions
                 </p>
                 <Button className="bg-emerald hover:bg-emerald-dark">
