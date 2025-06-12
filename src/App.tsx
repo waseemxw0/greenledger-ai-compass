@@ -10,6 +10,7 @@ import ReportGenerator from "./pages/ReportGenerator";
 import DataManager from "./pages/DataManager";
 import GoalsRoadmap from "./pages/GoalsRoadmap";
 import Settings from "./pages/Settings";
+import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NotFound from "./pages/NotFound";
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/data" element={<DataManager />} />
           <Route path="/goals" element={<GoalsRoadmap />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="*" element={<NotFound />} />

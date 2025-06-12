@@ -291,60 +291,60 @@ const Settings = () => {
               <div className="space-y-8">
                 <div className="space-y-4">
                   <h3 className="text-lg font-medium">Cloud Storage</h3>
-                  <div className="grid grid-cols-1 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                     <Card className="border border-border/50">
                       <CardContent className="p-4">
-                        <div className="flex items-center justify-between">
+                        <div className="flex flex-col space-y-3">
                           <div className="flex items-center gap-3">
                             <div className="h-10 w-10 rounded-lg bg-blue-100 flex items-center justify-center">
                               <svg className="h-6 w-6 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12.01 2C6.5 2 2.01 6.5 2.01 12s4.49 10 9.99 10c5.51 0 10-4.5 10-10S17.52 2 12.01 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
                               </svg>
                             </div>
-                            <div>
+                            <div className="flex-1">
                               <h4 className="font-medium">Google Drive</h4>
                               <p className="text-sm text-muted-foreground">Not connected</p>
                             </div>
                           </div>
-                          <Button variant="outline" size="sm">Connect</Button>
+                          <Button variant="outline" size="sm" className="w-full">Connect</Button>
                         </div>
                       </CardContent>
                     </Card>
                     
                     <Card className="border border-border/50">
                       <CardContent className="p-4">
-                        <div className="flex items-center justify-between">
+                        <div className="flex flex-col space-y-3">
                           <div className="flex items-center gap-3">
                             <div className="h-10 w-10 rounded-lg bg-blue-50 flex items-center justify-center">
                               <svg className="h-6 w-6 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M7 4V2C7 1.45 7.45 1 8 1H16C16.55 1 17 1.45 17 2V4H20C20.55 4 21 4.45 21 5S20.55 6 20 6H19V19C19 20.1 18.1 21 17 21H7C5.9 21 5 20.1 5 19V6H4C3.45 6 3 5.55 3 5S3.45 4 4 4H7ZM9 3V4H15V3H9ZM7 6V19H17V6H7Z"/>
                               </svg>
                             </div>
-                            <div>
+                            <div className="flex-1">
                               <h4 className="font-medium">Dropbox</h4>
                               <p className="text-sm text-muted-foreground">Not connected</p>
                             </div>
                           </div>
-                          <Button variant="outline" size="sm">Connect</Button>
+                          <Button variant="outline" size="sm" className="w-full">Connect</Button>
                         </div>
                       </CardContent>
                     </Card>
                     
                     <Card className="border border-border/50">
                       <CardContent className="p-4">
-                        <div className="flex items-center justify-between">
+                        <div className="flex flex-col space-y-3">
                           <div className="flex items-center gap-3">
                             <div className="h-10 w-10 rounded-lg bg-blue-50 flex items-center justify-center">
                               <svg className="h-6 w-6 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                               </svg>
                             </div>
-                            <div>
+                            <div className="flex-1">
                               <h4 className="font-medium">OneDrive</h4>
                               <p className="text-sm text-muted-foreground">Not connected</p>
                             </div>
                           </div>
-                          <Button variant="outline" size="sm">Connect</Button>
+                          <Button variant="outline" size="sm" className="w-full">Connect</Button>
                         </div>
                       </CardContent>
                     </Card>
@@ -355,58 +355,58 @@ const Settings = () => {
                 
                 <div className="space-y-4">
                   <h3 className="text-lg font-medium">Business Tools</h3>
-                  <div className="grid grid-cols-1 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                     <Card className="border border-emerald/30 bg-emerald/5">
                       <CardContent className="p-4">
-                        <div className="flex items-center justify-between">
+                        <div className="flex flex-col space-y-3">
                           <div className="flex items-center gap-3">
                             <div className="h-10 w-10 rounded-lg bg-emerald/20 flex items-center justify-center">
                               <Check className="h-5 w-5 text-emerald" />
                             </div>
-                            <div>
+                            <div className="flex-1">
                               <h4 className="font-medium">QuickBooks</h4>
                               <p className="text-sm text-muted-foreground">Connected</p>
                             </div>
                           </div>
-                          <Button variant="outline" size="sm">Disconnect</Button>
+                          <Button variant="outline" size="sm" className="w-full">Disconnect</Button>
                         </div>
                       </CardContent>
                     </Card>
                     
                     <Card className="border border-border/50">
                       <CardContent className="p-4">
-                        <div className="flex items-center justify-between">
+                        <div className="flex flex-col space-y-3">
                           <div className="flex items-center gap-3">
                             <div className="h-10 w-10 rounded-lg bg-orange-50 flex items-center justify-center">
                               <svg className="h-6 w-6 text-orange-500" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
                               </svg>
                             </div>
-                            <div>
+                            <div className="flex-1">
                               <h4 className="font-medium">Zapier</h4>
                               <p className="text-sm text-muted-foreground">Not connected</p>
                             </div>
                           </div>
-                          <Button variant="outline" size="sm">Connect</Button>
+                          <Button variant="outline" size="sm" className="w-full">Connect</Button>
                         </div>
                       </CardContent>
                     </Card>
                     
                     <Card className="border border-border/50">
                       <CardContent className="p-4">
-                        <div className="flex items-center justify-between">
+                        <div className="flex flex-col space-y-3">
                           <div className="flex items-center gap-3">
                             <div className="h-10 w-10 rounded-lg bg-purple-50 flex items-center justify-center">
                               <svg className="h-6 w-6 text-purple-500" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
                               </svg>
                             </div>
-                            <div>
+                            <div className="flex-1">
                               <h4 className="font-medium">Slack</h4>
                               <p className="text-sm text-muted-foreground">Not connected</p>
                             </div>
                           </div>
-                          <Button variant="outline" size="sm">Connect</Button>
+                          <Button variant="outline" size="sm" className="w-full">Connect</Button>
                         </div>
                       </CardContent>
                     </Card>

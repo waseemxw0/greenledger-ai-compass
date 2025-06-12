@@ -2,9 +2,17 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { BarChart3, FileText, Goal, Home, LineChart, PlusCircle, Settings, Upload } from "lucide-react";
+import { BarChart3, FileText, Goal, Home, LineChart, PlusCircle, Settings, Upload, User, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface SidebarProps {
   className?: string;
@@ -33,6 +41,14 @@ export function Sidebar({ className }: SidebarProps) {
   ];
 
   const handleNavigation = (path: string) => {
+    navigate(path);
+  };
+
+  const handleNewReport = () => {
+    navigate("/reports");
+  };
+
+  const handleProfileNavigation = (path: string) => {
     navigate(path);
   };
 
@@ -77,12 +93,20 @@ export function Sidebar({ className }: SidebarProps) {
 
       <div className="mt-6 px-2">
         {expanded ? (
-          <Button variant="ghost" className="w-full justify-start px-4 gap-3 mb-6 bg-emerald hover:bg-emerald-dark text-white shadow-soft transition-all duration-300 hover:shadow-glow">
+          <Button 
+            variant="ghost" 
+            className="w-full justify-start px-4 gap-3 mb-6 bg-emerald hover:bg-emerald-dark text-white shadow-soft transition-all duration-300 hover:shadow-glow"
+            onClick={handleNewReport}
+          >
             <PlusCircle className="sidebar-icon" />
             <span>New Report</span>
           </Button>
         ) : (
-          <Button variant="ghost" className="w-full flex justify-center p-2 mb-6 bg-emerald hover:bg-emerald-dark text-white shadow-soft transition-all duration-300 hover:shadow-glow">
+          <Button 
+            variant="ghost" 
+            className="w-full flex justify-center p-2 mb-6 bg-emerald hover:bg-emerald-dark text-white shadow-soft transition-all duration-300 hover:shadow-glow"
+            onClick={handleNewReport}
+          >
             <PlusCircle className="sidebar-icon" />
           </Button>
         )}
@@ -125,16 +149,41 @@ export function Sidebar({ className }: SidebarProps) {
       </div>
 
       <div className="px-4 py-3 border-t border-sidebar-border flex items-center mt-auto">
-        <Avatar className="h-8 w-8 ring-2 ring-emerald/30">
-          <AvatarImage src="" alt="Avatar" />
-          <AvatarFallback className="text-xs bg-emerald text-white">SM</AvatarFallback>
-        </Avatar>
-        {expanded && (
-          <div className="ml-3">
-            <p className="text-sm font-medium">Sarah Miller</p>
-            <p className="text-xs text-sidebar-foreground/70">Business Owner</p>
-          </div>
-        )}
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" className="w-full p-0 h-auto justify-start hover:bg-sidebar-accent">
+              <div className="flex items-center w-full">
+                <Avatar className="h-8 w-8 ring-2 ring-emerald/30">
+                  <AvatarImage src="" alt="Avatar" />
+                  <AvatarFallback className="text-xs bg-emerald text-white">SM</AvatarFallback>
+                </Avatar>
+                {expanded && (
+                  <div className="ml-3 text-left">
+                    <p className="text-sm font-medium">Sarah Miller</p>
+                    <p className="text-xs text-sidebar-foreground/70">Business Owner</p>
+                  </div>
+                )}
+              </div>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-56">
+            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem onClick={() => handleProfileNavigation("/settings")}>
+              <User className="mr-2 h-4 w-4" />
+              <span>Profile Settings</span>
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => handleProfileNavigation("/settings")}>
+              <Settings className="mr-2 h-4 w-4" />
+              <span>Account Settings</span>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem onClick={() => handleProfileNavigation("/login")}>
+              <LogOut className="mr-2 h-4 w-4" />
+              <span>Log out</span>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </aside>
   );
