@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,6 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { Camera, Mail, Phone, MapPin, Calendar, Building } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
