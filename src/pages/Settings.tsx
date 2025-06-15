@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -18,8 +17,8 @@ const Settings = () => {
     <Layout>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold tracking-tight">Settings</h1>
-          <p className="text-muted-foreground text-sm md:text-base">
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight break-words">Settings</h1>
+          <p className="text-muted-foreground text-sm md:text-base whitespace-normal break-words">
             Manage your account and application preferences
           </p>
         </div>
@@ -37,8 +36,8 @@ const Settings = () => {
         <TabsContent value="profile" className="m-0 space-y-6">
           <Card>
             <CardHeader>
-              <CardTitle>Personal Information</CardTitle>
-              <CardDescription>Update your personal details</CardDescription>
+              <CardTitle className="break-words">Personal Information</CardTitle>
+              <CardDescription className="break-words whitespace-normal">Update your personal details</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="flex flex-col sm:flex-row items-center gap-6">
@@ -48,7 +47,7 @@ const Settings = () => {
                 </Avatar>
                 <div className="space-y-2 text-center sm:text-left">
                   <Button variant="outline">Change Avatar</Button>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-xs text-muted-foreground break-words whitespace-normal">
                     JPG, GIF or PNG. Max size 2MB.
                   </p>
                 </div>
@@ -59,19 +58,19 @@ const Settings = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="first-name">First Name</Label>
-                  <Input id="first-name" defaultValue="Sarah" />
+                  <Input id="first-name" defaultValue="Sarah" className="break-words" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="last-name">Last Name</Label>
-                  <Input id="last-name" defaultValue="Miller" />
+                  <Input id="last-name" defaultValue="Miller" className="break-words" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
-                  <Input id="email" defaultValue="sarah@greenledger.ai" />
+                  <Input id="email" defaultValue="sarah@greenledger.ai" className="break-words" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="phone">Phone Number</Label>
-                  <Input id="phone" defaultValue="+1 (555) 123-4567" />
+                  <Input id="phone" defaultValue="+1 (555) 123-4567" className="break-words" />
                 </div>
               </div>
               
@@ -83,22 +82,22 @@ const Settings = () => {
           
           <Card>
             <CardHeader>
-              <CardTitle>Password</CardTitle>
-              <CardDescription>Update your password</CardDescription>
+              <CardTitle className="break-words">Password</CardTitle>
+              <CardDescription className="break-words whitespace-normal">Update your password</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="current-password">Current Password</Label>
-                  <Input id="current-password" type="password" />
+                  <Input id="current-password" type="password" className="break-words" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="new-password">New Password</Label>
-                  <Input id="new-password" type="password" />
+                  <Input id="new-password" type="password" className="break-words" />
                 </div>
                 <div className="space-y-2 md:col-span-2">
                   <Label htmlFor="confirm-password">Confirm Password</Label>
-                  <Input id="confirm-password" type="password" />
+                  <Input id="confirm-password" type="password" className="break-words" />
                 </div>
               </div>
               
@@ -112,19 +111,19 @@ const Settings = () => {
         <TabsContent value="company" className="m-0 space-y-6">
           <Card>
             <CardHeader>
-              <CardTitle>Company Information</CardTitle>
-              <CardDescription>Update your organization details</CardDescription>
+              <CardTitle className="break-words">Company Information</CardTitle>
+              <CardDescription className="break-words whitespace-normal">Update your organization details</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2 md:col-span-2">
                   <Label htmlFor="company-name">Company Name</Label>
-                  <Input id="company-name" defaultValue="GreenTech Solutions LLC" />
+                  <Input id="company-name" defaultValue="GreenTech Solutions LLC" className="break-words" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="industry">Industry</Label>
                   <Select defaultValue="technology">
-                    <SelectTrigger id="industry">
+                    <SelectTrigger id="industry" className="break-words whitespace-normal">
                       <SelectValue placeholder="Select industry" />
                     </SelectTrigger>
                     <SelectContent>
@@ -141,7 +140,7 @@ const Settings = () => {
                 <div className="space-y-2">
                   <Label htmlFor="company-size">Company Size</Label>
                   <Select defaultValue="11-50">
-                    <SelectTrigger id="company-size">
+                    <SelectTrigger id="company-size" className="break-words whitespace-normal">
                       <SelectValue placeholder="Select company size" />
                     </SelectTrigger>
                     <SelectContent>
@@ -160,24 +159,24 @@ const Settings = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2 md:col-span-2">
                   <Label htmlFor="address">Address</Label>
-                  <Input id="address" defaultValue="123 Green Street" />
+                  <Input id="address" defaultValue="123 Green Street" className="break-words" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="city">City</Label>
-                  <Input id="city" defaultValue="San Francisco" />
+                  <Input id="city" defaultValue="San Francisco" className="break-words" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="state">State/Province</Label>
-                  <Input id="state" defaultValue="California" />
+                  <Input id="state" defaultValue="California" className="break-words" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="zip">ZIP/Postal Code</Label>
-                  <Input id="zip" defaultValue="94105" />
+                  <Input id="zip" defaultValue="94105" className="break-words" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="country">Country</Label>
                   <Select defaultValue="us">
-                    <SelectTrigger id="country">
+                    <SelectTrigger id="country" className="break-words whitespace-normal">
                       <SelectValue placeholder="Select country" />
                     </SelectTrigger>
                     <SelectContent>
@@ -201,8 +200,8 @@ const Settings = () => {
         <TabsContent value="notifications" className="m-0 space-y-6">
           <Card>
             <CardHeader>
-              <CardTitle>Notification Settings</CardTitle>
-              <CardDescription>Configure how you receive notifications</CardDescription>
+              <CardTitle className="break-words">Notification Settings</CardTitle>
+              <CardDescription className="break-words whitespace-normal">Configure how you receive notifications</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
@@ -285,8 +284,8 @@ const Settings = () => {
         <TabsContent value="integrations" className="m-0 space-y-6">
           <Card>
             <CardHeader>
-              <CardTitle>Connected Integrations</CardTitle>
-              <CardDescription>Manage connected services and data sources</CardDescription>
+              <CardTitle className="break-words">Connected Integrations</CardTitle>
+              <CardDescription className="break-words whitespace-normal">Manage connected services and data sources</CardDescription>
             </CardHeader>
             <CardContent className="space-y-8">
               <div className="space-y-4">
@@ -426,8 +425,8 @@ const Settings = () => {
         <TabsContent value="billing" className="m-0 space-y-6">
           <Card>
             <CardHeader>
-              <CardTitle>Subscription Plan</CardTitle>
-              <CardDescription>Manage your subscription plan and billing details</CardDescription>
+              <CardTitle className="break-words">Subscription Plan</CardTitle>
+              <CardDescription className="break-words whitespace-normal">Manage your subscription plan and billing details</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
