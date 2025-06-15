@@ -1,9 +1,9 @@
+
 import { Sidebar } from "./Sidebar";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { TopNavAuthActions } from "./TopNavAuthActions";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -20,10 +20,6 @@ export function Layout({ children, className }: LayoutProps) {
 
   return (
     <div className="flex w-full min-h-screen bg-background relative">
-      {/* --- ADD TOP NAV AUTH BUTTONS --- */}
-      <div className="fixed top-4 right-8 z-50">
-        <TopNavAuthActions />
-      </div>
       {/* Mobile menu button - only visible on mobile */}
       <Button
         variant="ghost"

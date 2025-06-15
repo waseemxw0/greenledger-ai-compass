@@ -16,7 +16,6 @@ import NotFound from "./pages/NotFound";
 import PricingFree from "./pages/PricingFree";
 import PricingPro from "./pages/PricingPro";
 import PricingCompliancePlus from "./pages/PricingCompliancePlus";
-import Dashboard from "./pages/Dashboard";
 
 const queryClient = new QueryClient();
 
@@ -39,7 +38,6 @@ const App = () => (
           <Route path="/pricing/free" element={<PricingFree />} />
           <Route path="/pricing/pro" element={<PricingPro />} />
           <Route path="/pricing/compliance-plus" element={<PricingCompliancePlus />} />
-          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
