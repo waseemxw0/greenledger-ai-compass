@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { FeatureBreakdownSection } from "./index-sections/FeatureBreakdownSection";
 import { WhoItsForSection } from "./index-sections/WhoItsForSection";
 import { DemoVisualSection } from "./index-sections/DemoVisualSection";
+import { FeaturesSection } from "./index-sections/FeaturesSection";
 
 const Index = () => {
   const [mounted, setMounted] = useState(false);
@@ -24,6 +25,9 @@ const Index = () => {
 
   return (
     <Layout>
+      {/* New: Features + infographic + How it works */}
+      <FeaturesSection />
+
       {/* New: Feature Breakdown section */}
       <FeatureBreakdownSection />
       {/* New: Who It's For section */}
