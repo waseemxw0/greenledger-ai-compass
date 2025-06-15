@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+
+// Fixed duplicate useState import!
+
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,7 +12,6 @@ import { Eye, EyeOff, LineChart, Mail, Lock } from "lucide-react";
 import { useSupabaseAuth } from "@/hooks/useSupabaseAuth";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { useEffect, useState } from "react";
 
 const Login = () => {
   const { user } = useSupabaseAuth();
