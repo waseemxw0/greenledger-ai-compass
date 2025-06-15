@@ -16,9 +16,6 @@ import NotFound from "./pages/NotFound";
 import PricingFree from "./pages/PricingFree";
 import PricingPro from "./pages/PricingPro";
 import PricingCompliancePlus from "./pages/PricingCompliancePlus";
-import BookDemo from "./pages/BookDemo";
-import ESGReadinessSurvey from "./pages/ESGReadinessSurvey";
-import FreeESGTemplate from "./pages/FreeESGTemplate";
 
 const queryClient = new QueryClient();
 
@@ -41,9 +38,6 @@ const App = () => (
           <Route path="/pricing/free" element={<PricingFree />} />
           <Route path="/pricing/pro" element={<PricingPro />} />
           <Route path="/pricing/compliance-plus" element={<PricingCompliancePlus />} />
-          <Route path="/book-demo" element={<BookDemo />} />
-          <Route path="/esg-readiness-survey" element={<ESGReadinessSurvey />} />
-          <Route path="/free-esg-template" element={<FreeESGTemplate />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
