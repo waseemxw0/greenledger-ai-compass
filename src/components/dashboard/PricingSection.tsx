@@ -1,7 +1,7 @@
-
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface PricingTier {
   name: string;
@@ -13,6 +13,7 @@ interface PricingTier {
 }
 
 export function PricingSection() {
+  const navigate = useNavigate();
   const pricingTiers: PricingTier[] = [
     {
       name: "Free",
@@ -55,6 +56,16 @@ export function PricingSection() {
       cta: "Upgrade to Compliance+"
     },
   ];
+
+  // Map tier name to route
+  const tierRoute = (name: string) => {
+    switch (name) {
+      case "Free": return "/pricing/free";
+      case "Pro": return "/pricing/pro";
+      case "Compliance+": return "/pricing/compliance-plus";
+      default: return "/pricing";
+    }
+  };
 
   return (
     <section className="py-12 relative overflow-hidden">
@@ -109,6 +120,7 @@ export function PricingSection() {
               <Button 
                 className={`w-full ${tier.popular ? 'bg-emerald hover:bg-emerald-dark shadow-glow' : ''}`}
                 variant={tier.popular ? "default" : "outline"}
+                onClick={() => navigate(tierRoute(tier.name))}
               >
                 {tier.cta}
               </Button>

@@ -42,7 +42,7 @@ const Profile = () => {
               <div className="relative">
                 <Avatar className="h-24 w-24">
                   <AvatarImage src="" />
-                  <AvatarFallback className="text-2xl bg-emerald text-white">SM</AvatarFallback>
+                  <AvatarFallback className="text-2xl bg-emerald text-white">--</AvatarFallback>
                 </Avatar>
                 {isEditing && (
                   <Button size="icon" variant="outline" className="absolute -bottom-2 -right-2 rounded-full h-8 w-8">
@@ -51,10 +51,10 @@ const Profile = () => {
                 )}
               </div>
               <div className="text-center sm:text-left space-y-2">
-                <h2 className="text-2xl font-semibold">Sarah Miller</h2>
-                <p className="text-muted-foreground">Business Owner at GreenTech Solutions</p>
-                <Badge variant="outline" className="bg-emerald/10 text-emerald border-emerald/30">
-                  Pro Member
+                <h2 className="text-2xl font-semibold">New User</h2>
+                <p className="text-muted-foreground">Business Owner</p>
+                <Badge variant="outline" className="bg-gray-100 text-gray-400 border-gray-200">
+                  Free Plan
                 </Badge>
               </div>
             </div>
@@ -67,7 +67,8 @@ const Profile = () => {
                   <Label htmlFor="first-name">First Name</Label>
                   <Input 
                     id="first-name" 
-                    defaultValue="Sarah" 
+                    defaultValue="" 
+                    placeholder="First name"
                     disabled={!isEditing}
                     className={!isEditing ? "bg-muted" : ""}
                   />
@@ -79,7 +80,8 @@ const Profile = () => {
                     <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                     <Input 
                       id="email" 
-                      defaultValue="sarah@greenledger.ai" 
+                      defaultValue="" 
+                      placeholder="Email"
                       disabled={!isEditing}
                       className={cn("pl-10", !isEditing ? "bg-muted" : "")}
                     />
@@ -92,7 +94,8 @@ const Profile = () => {
                     <Phone className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                     <Input 
                       id="phone" 
-                      defaultValue="+1 (555) 123-4567" 
+                      defaultValue="" 
+                      placeholder="Phone number"
                       disabled={!isEditing}
                       className={cn("pl-10", !isEditing ? "bg-muted" : "")}
                     />
@@ -105,7 +108,8 @@ const Profile = () => {
                   <Label htmlFor="last-name">Last Name</Label>
                   <Input 
                     id="last-name" 
-                    defaultValue="Miller" 
+                    defaultValue="" 
+                    placeholder="Last name"
                     disabled={!isEditing}
                     className={!isEditing ? "bg-muted" : ""}
                   />
@@ -117,7 +121,8 @@ const Profile = () => {
                     <Building className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                     <Input 
                       id="company" 
-                      defaultValue="GreenTech Solutions LLC" 
+                      defaultValue="" 
+                      placeholder="Company"
                       disabled={!isEditing}
                       className={cn("pl-10", !isEditing ? "bg-muted" : "")}
                     />
@@ -130,7 +135,8 @@ const Profile = () => {
                     <MapPin className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                     <Input 
                       id="location" 
-                      defaultValue="San Francisco, CA" 
+                      defaultValue="" 
+                      placeholder="Location"
                       disabled={!isEditing}
                       className={cn("pl-10", !isEditing ? "bg-muted" : "")}
                     />
@@ -149,15 +155,15 @@ const Profile = () => {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center p-4 bg-emerald/5 rounded-lg border border-emerald/20">
-                <div className="text-2xl font-bold text-emerald">24</div>
+                <div className="text-2xl font-bold text-emerald">0</div>
                 <div className="text-sm text-muted-foreground">Reports Generated</div>
               </div>
               <div className="text-center p-4 bg-blue-50 rounded-lg border border-blue-200">
-                <div className="text-2xl font-bold text-blue-600">156</div>
+                <div className="text-2xl font-bold text-blue-600">0</div>
                 <div className="text-sm text-muted-foreground">Days Active</div>
               </div>
               <div className="text-center p-4 bg-purple-50 rounded-lg border border-purple-200">
-                <div className="text-2xl font-bold text-purple-600">89%</div>
+                <div className="text-2xl font-bold text-purple-600">0%</div>
                 <div className="text-sm text-muted-foreground">Goal Progress</div>
               </div>
             </div>
