@@ -10,9 +10,11 @@ import { PricingSection } from "@/components/dashboard/PricingSection";
 import { IvyAssistant } from "@/components/IvyAssistant";
 import { FileText, TrendingUp, AreaChart, Award, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
   const [mounted, setMounted] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setMounted(true);
@@ -35,8 +37,9 @@ const Index = () => {
             </p>
           </div>
         </div>
-        <Button 
+        <Button
           className="w-full md:w-auto bg-emerald hover:bg-emerald-dark shadow-soft transition-all duration-300 hover:shadow-glow group relative overflow-hidden"
+          onClick={() => navigate("/reports")}
         >
           <span className="absolute top-0 left-0 w-full h-full bg-gradient-shimmer bg-shimmer animate-shimmer"></span>
           <FileText className="mr-2 h-4 w-4 relative z-10" />
