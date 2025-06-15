@@ -1,9 +1,9 @@
-
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { useNavigate } from "react-router-dom";
 import { FileText, Linkedin, ArrowDown, ArrowUp, Check } from "lucide-react";
 import { useEffect, useState } from "react";
+import { SchedulerModal } from "@/components/SchedulerModal";
 
 const CALENDLY_URL = "https://calendly.com/your-link";
 const TYPEFORM_URL = "https://typeform.com/to/example";
@@ -11,6 +11,7 @@ const EMAIL_TEMPLATE = "mailto:info@greenledger.ai?subject=Request%20ESG%20Audit
 
 function HeroSection() {
   const navigate = useNavigate();
+  const [modalOpen, setModalOpen] = useState<false | "calendly" | "typeform">(false);
   return (
     <section className="w-full pt-12 pb-14 md:py-20 flex flex-col items-center justify-center text-center bg-gradient-to-b from-emerald/10 via-transparent to-transparent rounded-xl mb-6 relative overflow-hidden">
       <div className="mb-2 flex justify-center items-center gap-2">
@@ -38,18 +39,31 @@ function HeroSection() {
         <Button
           variant="outline"
           className="font-semibold border-emerald text-emerald px-7 py-4"
-          onClick={() => window.open(CALENDLY_URL, "_blank", "noopener,noreferrer")}
+          onClick={() => setModalOpen("calendly")}
         >
           Book Free Demo
         </Button>
         <Button
           variant="ghost"
           className="font-semibold text-emerald px-7 py-4"
-          onClick={() => window.open(TYPEFORM_URL, "_blank", "noopener,noreferrer")}
+          onClick={() => setModalOpen("typeform")}
         >
           Start for Free
         </Button>
       </div>
+      {/* Embedding SchedulerModal for both modes */}
+      <SchedulerModal
+        open={modalOpen === "calendly"}
+        onClose={() => setModalOpen(false)}
+        type="calendly"
+        url={CALENDLY_URL}
+      />
+      <SchedulerModal
+        open={modalOpen === "typeform"}
+        onClose={() => setModalOpen(false)}
+        type="typeform"
+        url={TYPEFORM_URL}
+      />
     </section>
   );
 }
