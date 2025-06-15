@@ -1,3 +1,4 @@
+
 import { Sidebar } from "./Sidebar";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
@@ -70,9 +71,9 @@ export function Layout({ children, className }: LayoutProps) {
                 {/* Spacer for balance */}
                 <div className="w-8" />
               </div>
-              {/* Auth Actions (use sidebar variant: full width, white background) */}
+              {/* Auth Actions (use mobile variant: stacked, full width, more padding) */}
               <div className="flex flex-col gap-2">
-                <TopNavAuthActions buttonVariant="sidebar" />
+                <TopNavAuthActions />
               </div>
             </div>
             {/* Sidebar content (rest of navigation) */}
