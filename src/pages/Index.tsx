@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ESGScoreCard } from "@/components/dashboard/ESGScoreCard";
@@ -11,6 +10,9 @@ import { IvyAssistant } from "@/components/IvyAssistant";
 import { FileText, TrendingUp, AreaChart, Award, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FeatureBreakdownSection } from "./index-sections/FeatureBreakdownSection";
+import { WhoItsForSection } from "./index-sections/WhoItsForSection";
+import { DemoVisualSection } from "./index-sections/DemoVisualSection";
 
 const Index = () => {
   const [mounted, setMounted] = useState(false);
@@ -22,6 +24,13 @@ const Index = () => {
 
   return (
     <Layout>
+      {/* New: Feature Breakdown section */}
+      <FeatureBreakdownSection />
+      {/* New: Who It's For section */}
+      <WhoItsForSection />
+      {/* New: Product Demo Visuals */}
+      <DemoVisualSection />
+
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-4 sm:mb-8 gap-4 relative">
         <div className="w-full md:w-auto">
           <div className="animate-in fade-in duration-500">
