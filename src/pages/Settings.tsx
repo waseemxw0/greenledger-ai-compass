@@ -24,16 +24,46 @@ const Settings = () => {
         </div>
       </div>
 
+      {/* Force tabs to scroll on small screens; prevent overflow */}
       <Tabs defaultValue="profile" className="mb-6">
-        <TabsList className="mb-4 grid grid-cols-2 md:grid-cols-5 w-full">
-          <TabsTrigger value="profile" className="text-xs sm:text-sm">Profile</TabsTrigger>
-          <TabsTrigger value="company" className="text-xs sm:text-sm">Company</TabsTrigger>
-          <TabsTrigger value="notifications" className="text-xs sm:text-sm">Notifications</TabsTrigger>
-          <TabsTrigger value="integrations" className="text-xs sm:text-sm">Integrations</TabsTrigger>
-          <TabsTrigger value="billing" className="text-xs sm:text-sm">Billing</TabsTrigger>
+        <TabsList 
+          className="mb-4 grid grid-cols-2 md:grid-cols-5 w-full overflow-x-auto no-scrollbar gap-2 px-1"
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
+          <TabsTrigger 
+            value="profile" 
+            className="text-xs sm:text-sm min-w-[90px] truncate"
+          >
+            Profile
+          </TabsTrigger>
+          <TabsTrigger 
+            value="company" 
+            className="text-xs sm:text-sm min-w-[90px] truncate"
+          >
+            Company
+          </TabsTrigger>
+          <TabsTrigger 
+            value="notifications" 
+            className="text-xs sm:text-sm min-w-[90px] truncate"
+          >
+            Notifications
+          </TabsTrigger>
+          <TabsTrigger 
+            value="integrations" 
+            className="text-xs sm:text-sm min-w-[90px] truncate"
+          >
+            Integrations
+          </TabsTrigger>
+          <TabsTrigger 
+            value="billing" 
+            className="text-xs sm:text-sm min-w-[90px] truncate"
+          >
+            Billing
+          </TabsTrigger>
         </TabsList>
         
-        <TabsContent value="profile" className="m-0 space-y-6">
+        {/* Add mt-4 to create space between Tabs and Cards */}
+        <TabsContent value="profile" className="m-0 space-y-6 mt-4">
           <Card className="overflow-auto">
             <CardHeader>
               <CardTitle className="break-words whitespace-normal">Personal Information</CardTitle>
@@ -108,7 +138,7 @@ const Settings = () => {
           </Card>
         </TabsContent>
 
-        <TabsContent value="company" className="m-0 space-y-6">
+        <TabsContent value="company" className="m-0 space-y-6 mt-4">
           <Card className="overflow-auto">
             <CardHeader>
               <CardTitle className="break-words whitespace-normal">Company Information</CardTitle>
@@ -197,7 +227,7 @@ const Settings = () => {
           </Card>
         </TabsContent>
 
-        <TabsContent value="notifications" className="m-0 space-y-6">
+        <TabsContent value="notifications" className="m-0 space-y-6 mt-4">
           <Card className="overflow-auto">
             <CardHeader>
               <CardTitle className="break-words whitespace-normal">Notification Settings</CardTitle>
@@ -281,7 +311,7 @@ const Settings = () => {
           </Card>
         </TabsContent>
 
-        <TabsContent value="integrations" className="m-0 space-y-6">
+        <TabsContent value="integrations" className="m-0 space-y-6 mt-4">
           <Card className="overflow-auto">
             <CardHeader>
               <CardTitle className="break-words whitespace-normal">Connected Integrations</CardTitle>
@@ -422,7 +452,7 @@ const Settings = () => {
           </Card>
         </TabsContent>
 
-        <TabsContent value="billing" className="m-0 space-y-6">
+        <TabsContent value="billing" className="m-0 space-y-6 mt-4">
           <Card className="overflow-auto">
             <CardHeader>
               <CardTitle className="break-words whitespace-normal">Subscription Plan</CardTitle>
