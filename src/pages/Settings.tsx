@@ -34,12 +34,12 @@ const Settings = () => {
         </TabsList>
         
         <TabsContent value="profile" className="m-0 space-y-6">
-          <Card>
+          <Card className="overflow-auto">
             <CardHeader>
-              <CardTitle className="break-words">Personal Information</CardTitle>
+              <CardTitle className="break-words whitespace-normal">Personal Information</CardTitle>
               <CardDescription className="break-words whitespace-normal">Update your personal details</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="space-y-6 overflow-auto">
               <div className="flex flex-col sm:flex-row items-center gap-6">
                 <Avatar className="h-20 w-20">
                   <AvatarImage src="" />
@@ -55,22 +55,22 @@ const Settings = () => {
               
               <Separator />
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="first-name">First Name</Label>
-                  <Input id="first-name" defaultValue="Sarah" className="break-words" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+                <div className="space-y-2 w-full">
+                  <Label htmlFor="first-name" className="break-words whitespace-normal">First Name</Label>
+                  <Input id="first-name" defaultValue="Sarah" className="break-words whitespace-normal w-full" />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="last-name">Last Name</Label>
-                  <Input id="last-name" defaultValue="Miller" className="break-words" />
+                <div className="space-y-2 w-full">
+                  <Label htmlFor="last-name" className="break-words whitespace-normal">Last Name</Label>
+                  <Input id="last-name" defaultValue="Miller" className="break-words whitespace-normal w-full" />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input id="email" defaultValue="sarah@greenledger.ai" className="break-words" />
+                <div className="space-y-2 w-full">
+                  <Label htmlFor="email" className="break-words whitespace-normal">Email</Label>
+                  <Input id="email" defaultValue="sarah@greenledger.ai" className="break-words whitespace-normal w-full" />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number</Label>
-                  <Input id="phone" defaultValue="+1 (555) 123-4567" className="break-words" />
+                <div className="space-y-2 w-full">
+                  <Label htmlFor="phone" className="break-words whitespace-normal">Phone Number</Label>
+                  <Input id="phone" defaultValue="+1 (555) 123-4567" className="break-words whitespace-normal w-full" />
                 </div>
               </div>
               
@@ -80,24 +80,24 @@ const Settings = () => {
             </CardContent>
           </Card>
           
-          <Card>
+          <Card className="overflow-auto">
             <CardHeader>
-              <CardTitle className="break-words">Password</CardTitle>
+              <CardTitle className="break-words whitespace-normal">Password</CardTitle>
               <CardDescription className="break-words whitespace-normal">Update your password</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="current-password">Current Password</Label>
-                  <Input id="current-password" type="password" className="break-words" />
+            <CardContent className="space-y-6 overflow-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+                <div className="space-y-2 w-full">
+                  <Label htmlFor="current-password" className="break-words whitespace-normal">Current Password</Label>
+                  <Input id="current-password" type="password" className="break-words whitespace-normal w-full" />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="new-password">New Password</Label>
-                  <Input id="new-password" type="password" className="break-words" />
+                <div className="space-y-2 w-full">
+                  <Label htmlFor="new-password" className="break-words whitespace-normal">New Password</Label>
+                  <Input id="new-password" type="password" className="break-words whitespace-normal w-full" />
                 </div>
-                <div className="space-y-2 md:col-span-2">
-                  <Label htmlFor="confirm-password">Confirm Password</Label>
-                  <Input id="confirm-password" type="password" className="break-words" />
+                <div className="space-y-2 md:col-span-2 w-full">
+                  <Label htmlFor="confirm-password" className="break-words whitespace-normal">Confirm Password</Label>
+                  <Input id="confirm-password" type="password" className="break-words whitespace-normal w-full" />
                 </div>
               </div>
               
@@ -109,21 +109,21 @@ const Settings = () => {
         </TabsContent>
 
         <TabsContent value="company" className="m-0 space-y-6">
-          <Card>
+          <Card className="overflow-auto">
             <CardHeader>
-              <CardTitle className="break-words">Company Information</CardTitle>
+              <CardTitle className="break-words whitespace-normal">Company Information</CardTitle>
               <CardDescription className="break-words whitespace-normal">Update your organization details</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2 md:col-span-2">
-                  <Label htmlFor="company-name">Company Name</Label>
-                  <Input id="company-name" defaultValue="GreenTech Solutions LLC" className="break-words" />
+            <CardContent className="space-y-6 overflow-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+                <div className="space-y-2 md:col-span-2 w-full">
+                  <Label htmlFor="company-name" className="break-words whitespace-normal">Company Name</Label>
+                  <Input id="company-name" defaultValue="GreenTech Solutions LLC" className="break-words whitespace-normal w-full" />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="industry">Industry</Label>
+                <div className="space-y-2 w-full">
+                  <Label htmlFor="industry" className="break-words whitespace-normal">Industry</Label>
                   <Select defaultValue="technology">
-                    <SelectTrigger id="industry" className="break-words whitespace-normal">
+                    <SelectTrigger id="industry" className="break-words whitespace-normal w-full">
                       <SelectValue placeholder="Select industry" />
                     </SelectTrigger>
                     <SelectContent>
@@ -137,10 +137,10 @@ const Settings = () => {
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="company-size">Company Size</Label>
+                <div className="space-y-2 w-full">
+                  <Label htmlFor="company-size" className="break-words whitespace-normal">Company Size</Label>
                   <Select defaultValue="11-50">
-                    <SelectTrigger id="company-size" className="break-words whitespace-normal">
+                    <SelectTrigger id="company-size" className="break-words whitespace-normal w-full">
                       <SelectValue placeholder="Select company size" />
                     </SelectTrigger>
                     <SelectContent>
@@ -156,27 +156,27 @@ const Settings = () => {
               
               <Separator />
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2 md:col-span-2">
-                  <Label htmlFor="address">Address</Label>
-                  <Input id="address" defaultValue="123 Green Street" className="break-words" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+                <div className="space-y-2 md:col-span-2 w-full">
+                  <Label htmlFor="address" className="break-words whitespace-normal">Address</Label>
+                  <Input id="address" defaultValue="123 Green Street" className="break-words whitespace-normal w-full" />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="city">City</Label>
-                  <Input id="city" defaultValue="San Francisco" className="break-words" />
+                <div className="space-y-2 w-full">
+                  <Label htmlFor="city" className="break-words whitespace-normal">City</Label>
+                  <Input id="city" defaultValue="San Francisco" className="break-words whitespace-normal w-full" />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="state">State/Province</Label>
-                  <Input id="state" defaultValue="California" className="break-words" />
+                <div className="space-y-2 w-full">
+                  <Label htmlFor="state" className="break-words whitespace-normal">State/Province</Label>
+                  <Input id="state" defaultValue="California" className="break-words whitespace-normal w-full" />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="zip">ZIP/Postal Code</Label>
-                  <Input id="zip" defaultValue="94105" className="break-words" />
+                <div className="space-y-2 w-full">
+                  <Label htmlFor="zip" className="break-words whitespace-normal">ZIP/Postal Code</Label>
+                  <Input id="zip" defaultValue="94105" className="break-words whitespace-normal w-full" />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="country">Country</Label>
+                <div className="space-y-2 w-full">
+                  <Label htmlFor="country" className="break-words whitespace-normal">Country</Label>
                   <Select defaultValue="us">
-                    <SelectTrigger id="country" className="break-words whitespace-normal">
+                    <SelectTrigger id="country" className="break-words whitespace-normal w-full">
                       <SelectValue placeholder="Select country" />
                     </SelectTrigger>
                     <SelectContent>
@@ -198,9 +198,9 @@ const Settings = () => {
         </TabsContent>
 
         <TabsContent value="notifications" className="m-0 space-y-6">
-          <Card>
+          <Card className="overflow-auto">
             <CardHeader>
-              <CardTitle className="break-words">Notification Settings</CardTitle>
+              <CardTitle className="break-words whitespace-normal">Notification Settings</CardTitle>
               <CardDescription className="break-words whitespace-normal">Configure how you receive notifications</CardDescription>
             </CardHeader>
             <CardContent>
@@ -210,7 +210,7 @@ const Settings = () => {
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
                       <div>
-                        <Label htmlFor="report-reminders">Report Reminders</Label>
+                        <Label htmlFor="report-reminders" className="break-words whitespace-normal">Report Reminders</Label>
                         <p className="text-sm text-muted-foreground">Get reminders when reports are due</p>
                       </div>
                       <Switch id="report-reminders" defaultChecked />
@@ -218,7 +218,7 @@ const Settings = () => {
                     
                     <div className="flex items-center justify-between">
                       <div>
-                        <Label htmlFor="data-updates">Data Updates</Label>
+                        <Label htmlFor="data-updates" className="break-words whitespace-normal">Data Updates</Label>
                         <p className="text-sm text-muted-foreground">Notifications when data is missing or updated</p>
                       </div>
                       <Switch id="data-updates" defaultChecked />
@@ -226,7 +226,7 @@ const Settings = () => {
                     
                     <div className="flex items-center justify-between">
                       <div>
-                        <Label htmlFor="goal-progress">Goal Progress</Label>
+                        <Label htmlFor="goal-progress" className="break-words whitespace-normal">Goal Progress</Label>
                         <p className="text-sm text-muted-foreground">Updates on sustainability goal progress</p>
                       </div>
                       <Switch id="goal-progress" defaultChecked />
@@ -234,7 +234,7 @@ const Settings = () => {
                     
                     <div className="flex items-center justify-between">
                       <div>
-                        <Label htmlFor="marketing">Marketing</Label>
+                        <Label htmlFor="marketing" className="break-words whitespace-normal">Marketing</Label>
                         <p className="text-sm text-muted-foreground">Tips, product updates, and offers from GreenLedger</p>
                       </div>
                       <Switch id="marketing" />
@@ -249,7 +249,7 @@ const Settings = () => {
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
                       <div>
-                        <Label htmlFor="task-reminders">Task Reminders</Label>
+                        <Label htmlFor="task-reminders" className="break-words whitespace-normal">Task Reminders</Label>
                         <p className="text-sm text-muted-foreground">Show reminders for pending tasks</p>
                       </div>
                       <Switch id="task-reminders" defaultChecked />
@@ -257,7 +257,7 @@ const Settings = () => {
                     
                     <div className="flex items-center justify-between">
                       <div>
-                        <Label htmlFor="alerts">Alerts</Label>
+                        <Label htmlFor="alerts" className="break-words whitespace-normal">Alerts</Label>
                         <p className="text-sm text-muted-foreground">Critical alerts about your ESG reporting</p>
                       </div>
                       <Switch id="alerts" defaultChecked />
@@ -265,7 +265,7 @@ const Settings = () => {
                     
                     <div className="flex items-center justify-between">
                       <div>
-                        <Label htmlFor="ai-suggestions">AI Suggestions</Label>
+                        <Label htmlFor="ai-suggestions" className="break-words whitespace-normal">AI Suggestions</Label>
                         <p className="text-sm text-muted-foreground">Show AI-generated suggestions for improvement</p>
                       </div>
                       <Switch id="ai-suggestions" defaultChecked />
@@ -282,9 +282,9 @@ const Settings = () => {
         </TabsContent>
 
         <TabsContent value="integrations" className="m-0 space-y-6">
-          <Card>
+          <Card className="overflow-auto">
             <CardHeader>
-              <CardTitle className="break-words">Connected Integrations</CardTitle>
+              <CardTitle className="break-words whitespace-normal">Connected Integrations</CardTitle>
               <CardDescription className="break-words whitespace-normal">Manage connected services and data sources</CardDescription>
             </CardHeader>
             <CardContent className="space-y-8">
@@ -297,7 +297,7 @@ const Settings = () => {
                         <div className="flex items-center gap-3">
                           <div className="h-10 w-10 rounded-lg bg-blue-100 flex items-center justify-center">
                             <svg className="h-6 w-6 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M12.01 2C6.5 2 2.01 6.5 2.01 12s4.49 10 9.99 10c5.51 0 10-4.5 10-10S17.52 2 12.01 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                              <path d="M12.01 2C6.5 2 2.01 6.5 2.01 12s4.49 10 9.99 10c5.51 0 10-4.5 10-10S17.52 2 12.01 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                             </svg>
                           </div>
                           <div className="flex-1 min-w-0">
@@ -335,7 +335,7 @@ const Settings = () => {
                         <div className="flex items-center gap-3">
                           <div className="h-10 w-10 rounded-lg bg-blue-50 flex items-center justify-center">
                             <svg className="h-6 w-6 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
                             </svg>
                           </div>
                           <div className="flex-1 min-w-0">
@@ -397,7 +397,7 @@ const Settings = () => {
                         <div className="flex items-center gap-3">
                           <div className="h-10 w-10 rounded-lg bg-purple-50 flex items-center justify-center">
                             <svg className="h-6 w-6 text-purple-500" viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+                              <path d="M12 2C6.48 2 2 6.44 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
                             </svg>
                           </div>
                           <div className="flex-1 min-w-0">
@@ -423,9 +423,9 @@ const Settings = () => {
         </TabsContent>
 
         <TabsContent value="billing" className="m-0 space-y-6">
-          <Card>
+          <Card className="overflow-auto">
             <CardHeader>
-              <CardTitle className="break-words">Subscription Plan</CardTitle>
+              <CardTitle className="break-words whitespace-normal">Subscription Plan</CardTitle>
               <CardDescription className="break-words whitespace-normal">Manage your subscription plan and billing details</CardDescription>
             </CardHeader>
             <CardContent>
