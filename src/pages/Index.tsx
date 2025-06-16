@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ESGScoreCard } from "@/components/dashboard/ESGScoreCard";
@@ -112,28 +113,21 @@ const Index = () => {
                 </div>
               </div>
               <div className="flex items-end gap-2">
-                <span className="text-xl sm:text-2xl font-bold">12.6%</span>
-                <span className="text-emerald text-xs sm:text-sm flex items-center gap-1">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7 13L12 8L17 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M12 8V20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg> 
-                  decrease
+                <span className="text-xl sm:text-2xl font-bold">0%</span>
+                <span className="text-muted-foreground text-xs sm:text-sm flex items-center gap-1">
+                  No data yet
                 </span>
               </div>
               <div className="mt-4 h-16 sm:h-24 chart-container">
-                <div className="bg-gradient-to-t from-emerald/10 to-transparent h-full w-full rounded-md flex items-end">
+                <div className="bg-gradient-to-t from-gray-100 to-transparent h-full w-full rounded-md flex items-end">
                   {Array(12).fill(null).map((_, i) => (
                     <div 
                       key={i} 
                       className="flex-1 h-full flex items-end px-[1px]"
                     >
                       <div 
-                        className={`w-full bg-emerald/70 rounded-t-sm ${i % 4 === 0 ? 'animate-bounce-subtle' : ''}`}
-                        style={{ 
-                          height: `${20 + Math.sin(i/1.5) * 40 + Math.random() * 15}%`,
-                          animationDelay: `${i * 0.1}s`
-                        }}
+                        className="w-full bg-gray-200 rounded-t-sm"
+                        style={{ height: "5%" }}
                       ></div>
                     </div>
                   ))}
@@ -152,26 +146,17 @@ const Index = () => {
                 </div>
               </div>
               <div className="flex items-end gap-2">
-                <span className="text-xl sm:text-2xl font-bold gradient-text">Top 15%</span>
-                <span className="text-blue-500 text-xs sm:text-sm flex items-center gap-1">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7 13L12 8L17 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M12 8V20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  +3 places
+                <span className="text-xl sm:text-2xl font-bold gradient-text">N/A</span>
+                <span className="text-muted-foreground text-xs sm:text-sm flex items-center gap-1">
+                  No data yet
                 </span>
               </div>
               <div className="mt-4 flex gap-1.5 h-6 sm:h-8">
                 {[...Array(10)].map((_, i) => (
                   <div 
                     key={i} 
-                    className={`flex-1 rounded-sm transition-all duration-500 ${
-                      i < 2 ? 'bg-gradient-to-t from-blue-500 to-blue-400' : 'bg-gray-200 dark:bg-gray-700'
-                    } ${i === 1 ? 'animate-scale-subtle' : ''}`}
-                    style={{ 
-                      height: `${100 - (i * 8)}%`,
-                      boxShadow: i < 2 ? '0 3px 10px rgba(59, 130, 246, 0.3)' : 'none'
-                    }}
+                    className="flex-1 rounded-sm bg-gray-200 dark:bg-gray-700"
+                    style={{ height: "20%" }}
                   ></div>
                 ))}
               </div>
