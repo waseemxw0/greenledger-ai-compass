@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,66 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Upload, Search, FileText, Plus, Calendar, Folder } from "lucide-react";
+import { Upload, Search, FileText, Plus, Calendar, Folder, Database, BarChart3 } from "lucide-react";
 import { IvyAssistant } from "@/components/IvyAssistant";
 
 const DataManager = () => {
-  const [searchQuery, setSearchQuery] = useState<string>("");
-  const [selectedFiles, setSelectedFiles] = useState<string[]>([]);
   const [activeTab, setActiveTab] = useState<string>("files");
-
-  // Mock data
-  const mockFiles = [
-    { id: "1", name: "Electricity Bill - Q1 2025.pdf", type: "utility", date: "2025-03-15", size: "2.4 MB" },
-    { id: "2", name: "Natural Gas Statement.pdf", type: "utility", date: "2025-03-02", size: "1.7 MB" },
-    { id: "3", name: "Business Travel Report.xlsx", type: "travel", date: "2025-04-10", size: "3.2 MB" },
-    { id: "4", name: "Fleet Fuel Consumption.xlsx", type: "vehicle", date: "2025-03-28", size: "4.5 MB" },
-    { id: "5", name: "Office Supplies Invoice.pdf", type: "supplier", date: "2025-04-05", size: "1.1 MB" },
-    { id: "6", name: "Waste Management Receipt.pdf", type: "waste", date: "2025-04-15", size: "0.8 MB" },
-    { id: "7", name: "Employee Commute Survey.xlsx", type: "commute", date: "2025-04-01", size: "2.9 MB" },
-    { id: "8", name: "Supplier Carbon Report.pdf", type: "supplier", date: "2025-03-20", size: "5.2 MB" },
-  ];
-
-  const filteredFiles = mockFiles.filter(file => 
-    file.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    file.type.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  const toggleFileSelection = (fileId: string) => {
-    if (selectedFiles.includes(fileId)) {
-      setSelectedFiles(selectedFiles.filter(id => id !== fileId));
-    } else {
-      setSelectedFiles([...selectedFiles, fileId]);
-    }
-  };
-
-  const selectAllFiles = () => {
-    if (selectedFiles.length === filteredFiles.length) {
-      setSelectedFiles([]);
-    } else {
-      setSelectedFiles(filteredFiles.map(file => file.id));
-    }
-  };
-
-  const getFileTypeIcon = (type: string) => {
-    switch (type) {
-      case "utility":
-        return <FileText className="h-4 w-4 text-blue-500" />;
-      case "travel":
-        return <FileText className="h-4 w-4 text-purple-500" />;
-      case "vehicle":
-        return <FileText className="h-4 w-4 text-green-500" />;
-      case "supplier":
-        return <FileText className="h-4 w-4 text-orange-500" />;
-      case "waste":
-        return <FileText className="h-4 w-4 text-red-500" />;
-      case "commute":
-        return <FileText className="h-4 w-4 text-teal-500" />;
-      default:
-        return <FileText className="h-4 w-4 text-gray-500" />;
-    }
-  };
 
   return (
     <Layout>
@@ -95,23 +39,23 @@ const DataManager = () => {
                   <Folder className="mr-2 h-4 w-4" />
                   All Files
                 </Button>
-                <Button variant="ghost" className="w-full justify-start text-emerald text-sm">
-                  <Folder className="mr-2 h-4 w-4 text-emerald" />
+                <Button variant="ghost" className="w-full justify-start text-sm opacity-50">
+                  <Folder className="mr-2 h-4 w-4" />
                   Utility Bills
                 </Button>
-                <Button variant="ghost" className="w-full justify-start text-sm">
+                <Button variant="ghost" className="w-full justify-start text-sm opacity-50">
                   <Folder className="mr-2 h-4 w-4" />
                   Vehicle Logs
                 </Button>
-                <Button variant="ghost" className="w-full justify-start text-sm">
+                <Button variant="ghost" className="w-full justify-start text-sm opacity-50">
                   <Folder className="mr-2 h-4 w-4" />
                   Travel Receipts
                 </Button>
-                <Button variant="ghost" className="w-full justify-start text-sm">
+                <Button variant="ghost" className="w-full justify-start text-sm opacity-50">
                   <Folder className="mr-2 h-4 w-4" />
                   Supplier Data
                 </Button>
-                <Button variant="ghost" className="w-full justify-start text-sm">
+                <Button variant="ghost" className="w-full justify-start text-sm opacity-50">
                   <Folder className="mr-2 h-4 w-4" />
                   Waste Management
                 </Button>
@@ -153,144 +97,44 @@ const DataManager = () => {
               </Tabs>
             </CardHeader>
             <CardContent>
-              <div className="mb-6 flex flex-col gap-4">
-                <div className="relative flex-1">
-                  <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-                  <Input
-                    placeholder="Search files..."
-                    className="pl-8"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                  />
-                </div>
-                <div className="flex flex-col sm:flex-row gap-2">
-                  <Select>
-                    <SelectTrigger className="w-full sm:w-[180px]">
-                      <SelectValue placeholder="Filter by type" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="all">All Types</SelectItem>
-                      <SelectItem value="utility">Utility Bills</SelectItem>
-                      <SelectItem value="vehicle">Vehicle Logs</SelectItem>
-                      <SelectItem value="travel">Travel Documents</SelectItem>
-                      <SelectItem value="supplier">Supplier Data</SelectItem>
-                      <SelectItem value="waste">Waste Management</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <Button variant="outline" className="w-full sm:w-auto">
-                    <Calendar className="h-4 w-4 mr-2" />
-                    Date
-                  </Button>
-                </div>
-              </div>
-
               <Tabs value={activeTab}>
                 <TabsContent value="files" className="m-0">
-                  <div className="border rounded-md overflow-hidden">
-                    {/* Desktop Table Header */}
-                    <div className="hidden md:grid grid-cols-8 gap-2 p-3 border-b bg-muted/30 text-sm font-medium">
-                      <div className="col-span-1">
-                        <Checkbox 
-                          id="select-all" 
-                          onCheckedChange={selectAllFiles} 
-                          checked={selectedFiles.length === filteredFiles.length && filteredFiles.length > 0} 
-                        />
-                      </div>
-                      <div className="col-span-3">Name</div>
-                      <div className="col-span-1">Type</div>
-                      <div className="col-span-2">Date Added</div>
-                      <div className="col-span-1">Size</div>
-                    </div>
-
-                    {/* Mobile Header */}
-                    <div className="md:hidden flex items-center justify-between p-3 border-b bg-muted/30 text-sm font-medium">
-                      <div className="flex items-center gap-2">
-                        <Checkbox 
-                          id="select-all-mobile" 
-                          onCheckedChange={selectAllFiles} 
-                          checked={selectedFiles.length === filteredFiles.length && filteredFiles.length > 0} 
-                        />
-                        <span>Files</span>
-                      </div>
-                      <span className="text-xs text-muted-foreground">{filteredFiles.length} files</span>
-                    </div>
-
-                    <div className="divide-y">
-                      {filteredFiles.length > 0 ? (
-                        filteredFiles.map((file) => (
-                          <div key={file.id}>
-                            {/* Desktop Layout */}
-                            <div className="hidden md:grid grid-cols-8 gap-2 p-3 items-center hover:bg-muted/20">
-                              <div className="col-span-1">
-                                <Checkbox 
-                                  id={`file-${file.id}`} 
-                                  checked={selectedFiles.includes(file.id)} 
-                                  onCheckedChange={() => toggleFileSelection(file.id)} 
-                                />
-                              </div>
-                              <div className="col-span-3 flex items-center gap-2">
-                                {getFileTypeIcon(file.type)}
-                                <span className="truncate text-sm">{file.name}</span>
-                              </div>
-                              <div className="col-span-1 capitalize text-sm">{file.type}</div>
-                              <div className="col-span-2 text-sm">{new Date(file.date).toLocaleDateString()}</div>
-                              <div className="col-span-1 text-sm">{file.size}</div>
-                            </div>
-
-                            {/* Mobile Layout */}
-                            <div className="md:hidden p-3 hover:bg-muted/20">
-                              <div className="flex items-start gap-3">
-                                <Checkbox 
-                                  id={`file-mobile-${file.id}`} 
-                                  checked={selectedFiles.includes(file.id)} 
-                                  onCheckedChange={() => toggleFileSelection(file.id)}
-                                  className="mt-1"
-                                />
-                                <div className="flex-1 min-w-0">
-                                  <div className="flex items-center gap-2 mb-1">
-                                    {getFileTypeIcon(file.type)}
-                                    <span className="text-sm font-medium truncate">{file.name}</span>
-                                  </div>
-                                  <div className="flex items-center justify-between text-xs text-muted-foreground">
-                                    <span className="capitalize">{file.type}</span>
-                                    <span>{file.size}</span>
-                                  </div>
-                                  <div className="text-xs text-muted-foreground mt-1">
-                                    {new Date(file.date).toLocaleDateString()}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        ))
-                      ) : (
-                        <div className="p-8 text-center">
-                          <p className="text-muted-foreground">No files found matching your search criteria.</p>
-                        </div>
-                      )}
-                    </div>
+                  <div className="p-8 text-center">
+                    <Database className="h-16 w-16 text-muted-foreground/30 mx-auto mb-4" />
+                    <h3 className="text-xl font-medium mb-2">No Files Yet</h3>
+                    <p className="text-muted-foreground max-w-md mx-auto mb-6">
+                      Upload your ESG-related documents to get started with data management and analysis
+                    </p>
+                    <Button className="bg-emerald hover:bg-emerald-dark">
+                      <Plus className="mr-2 h-4 w-4" />
+                      Upload Your First File
+                    </Button>
                   </div>
                 </TabsContent>
 
                 <TabsContent value="extracted-data" className="m-0">
                   <div className="p-8 text-center">
                     <FileText className="h-16 w-16 text-muted-foreground/30 mx-auto mb-4" />
-                    <h3 className="text-xl font-medium mb-2">Data Extraction</h3>
-                    <p className="text-muted-foreground max-w-md mx-auto mb-4">
-                      Select files to automatically extract data points for ESG reporting
+                    <h3 className="text-xl font-medium mb-2">No Data Extracted</h3>
+                    <p className="text-muted-foreground max-w-md mx-auto mb-6">
+                      Upload files first to automatically extract data points for ESG reporting
                     </p>
-                    <Button className="bg-emerald hover:bg-emerald-dark">Extract Data From Files</Button>
+                    <Button className="bg-emerald hover:bg-emerald-dark" disabled>
+                      Extract Data From Files
+                    </Button>
                   </div>
                 </TabsContent>
 
                 <TabsContent value="analysis" className="m-0">
                   <div className="p-8 text-center">
-                    <FileText className="h-16 w-16 text-muted-foreground/30 mx-auto mb-4" />
-                    <h3 className="text-xl font-medium mb-2">Data Analysis</h3>
-                    <p className="text-muted-foreground max-w-md mx-auto mb-4">
+                    <BarChart3 className="h-16 w-16 text-muted-foreground/30 mx-auto mb-4" />
+                    <h3 className="text-xl font-medium mb-2">No Analysis Available</h3>
+                    <p className="text-muted-foreground max-w-md mx-auto mb-6">
                       Upload data files to analyze trends and gain insights for your ESG reporting
                     </p>
-                    <Button className="bg-emerald hover:bg-emerald-dark">Start Analysis</Button>
+                    <Button className="bg-emerald hover:bg-emerald-dark" disabled>
+                      Start Analysis
+                    </Button>
                   </div>
                 </TabsContent>
               </Tabs>
@@ -308,19 +152,25 @@ const DataManager = () => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="flex items-center justify-center border-2 border-dashed border-gray-300 p-6 rounded-lg">
-              <div className="space-y-2 text-center">
-                <Upload className="mx-auto h-12 w-12 text-gray-400" />
-                <div className="text-sm text-gray-600">
-                  <label htmlFor="data-upload" className="relative cursor-pointer text-emerald font-medium">
+            <div className="flex items-center justify-center border-2 border-dashed border-gray-300 p-8 rounded-lg hover:border-emerald/50 transition-colors">
+              <div className="space-y-4 text-center">
+                <Upload className="mx-auto h-16 w-16 text-gray-400" />
+                <div className="text-lg text-gray-600">
+                  <label htmlFor="data-upload" className="relative cursor-pointer text-emerald font-medium hover:text-emerald-dark">
                     <span>Upload files</span>
                     <input id="data-upload" name="data-upload" type="file" className="sr-only" multiple />
                   </label>
-                  <p className="pl-1">or drag and drop</p>
+                  <p className="mt-1">or drag and drop</p>
                 </div>
-                <p className="text-xs text-gray-500">
+                <p className="text-sm text-gray-500">
                   PDF, XLS, CSV, JPG up to 10MB per file
                 </p>
+                <div className="flex flex-wrap justify-center gap-2 mt-4">
+                  <span className="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full">Utility Bills</span>
+                  <span className="px-3 py-1 bg-green-50 text-green-700 text-xs rounded-full">Travel Receipts</span>
+                  <span className="px-3 py-1 bg-purple-50 text-purple-700 text-xs rounded-full">Vehicle Logs</span>
+                  <span className="px-3 py-1 bg-orange-50 text-orange-700 text-xs rounded-full">Supplier Data</span>
+                </div>
               </div>
             </div>
           </CardContent>
