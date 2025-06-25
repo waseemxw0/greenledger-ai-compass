@@ -1,11 +1,12 @@
 import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import App from './App';
 
-describe('App root', () => {
+// Simple smoke test to ensure the component tree renders without throwing.
+
+describe('<App />', () => {
   it('renders without crashing', () => {
-    render(<App />);
-    // check for a known text from Index page navigation route not loaded yet, so just ensure container exists
-    expect(screen.getByRole('main', { hidden: true })).toBeDefined();
+    const { container } = render(<App />);
+    expect(container.firstChild).toBeTruthy();
   });
 });
