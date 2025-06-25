@@ -11,7 +11,9 @@
     "lint:fix": "eslint . --fix --cache",
     "type-check": "tsc -p tsconfig.app.json --noEmit",
     "format": "prettier --write .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
