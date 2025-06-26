@@ -4,6 +4,26 @@
 
 **URL**: https://lovable.dev/projects/302cc824-8a19-4033-8226-71012893fe68
 
+## Environment variables
+
+Before running the project, you need to provide your Supabase credentials using environment variables. These are public (anon) keys but should **not** be committed to version control.
+
+1. Copy the example file:
+
+   ```sh
+   cp .env.example .env
+   ```
+
+2. Fill in the two required fields in your new `.env` file:
+
+   ```
+   VITE_SUPABASE_URL=your-supabase-url
+   VITE_SUPABASE_ANON_KEY=your-public-anon-key
+   ```
+
+   - You can find these in your Supabase dashboard under **Project Settings > API**.
+   - The anon key is safe to use in the browser, but your `.env` file should always be excluded from git (see `.gitignore`).
+
 ## How can I edit this code?
 
 There are several ways of editing your application.
