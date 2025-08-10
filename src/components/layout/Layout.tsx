@@ -21,10 +21,7 @@ export function Layout({ children, className }: LayoutProps) {
 
   return (
     <div className="flex w-full min-h-screen bg-background relative">
-      {/* --- Desktop: Top Nav Auth Buttons --- */}
-      <div className="fixed top-4 right-8 z-50 hidden md:block">
-        <TopNavAuthActions />
-      </div>
+      {/* --- Desktop: Top Nav Auth Buttons (moved into main header to avoid overlay) --- */}
 
       {/* Mobile menu button - only visible on mobile */}
       <Button
@@ -109,6 +106,9 @@ export function Layout({ children, className }: LayoutProps) {
             className="absolute top-1/4 left-1/3 -z-10 w-64 h-64 bg-purple-500/5 rounded-full filter blur-3xl opacity-30 animate-float"
             style={{ animationDelay: "2s" }}
           ></div>
+          <div className="hidden md:flex justify-end mb-4">
+            <TopNavAuthActions />
+          </div>
           {children}
         </div>
       </main>
