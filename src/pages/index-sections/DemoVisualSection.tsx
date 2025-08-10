@@ -1,9 +1,10 @@
+import preview1 from "@/assets/product-preview-1.jpg";
+import preview2 from "@/assets/product-preview-2.jpg";
 
-const PLACEHOLDER_DASH_IMAGES = [
-  "/placeholder.svg",
-  "/placeholder.svg",
+const PREVIEW_DASH_IMAGES = [
+  { src: preview1, alt: "ESG dashboard preview with emissions chart" },
+  { src: preview2, alt: "Sustainability analytics with tasks and alerts" },
 ];
-
 export function DemoVisualSection() {
   return (
     <section className="py-8 sm:py-14 bg-white/80 dark:bg-background border-b">
@@ -13,12 +14,12 @@ export function DemoVisualSection() {
           See how easy it can be to run ESG reporting that impresses your customers, regulators, and team!
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
-          {PLACEHOLDER_DASH_IMAGES.map((src, i) => (
+          {PREVIEW_DASH_IMAGES.map((img, i) => (
             <div key={i} className="glass-card rounded-md overflow-hidden p-0 border">
               <img
-                src={src}
-                alt="Preview dashboard screenshot"
-                className="w-full h-60 object-cover bg-gray-100"
+                src={img.src}
+                alt={img.alt}
+                className="w-full h-60 object-cover bg-muted"
                 loading="lazy"
               />
             </div>

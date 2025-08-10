@@ -24,15 +24,15 @@ export default function PricingPro() {
         </CardHeader>
         <CardContent>
           <ul className="space-y-3">
-            <li className="flex items-center"><Check className="text-emerald mr-2" /> Full emissions calculator</li>
-            <li className="flex items-center"><Check className="text-emerald mr-2" /> Scope 1, 2, and 3 tracking</li>
-            <li className="flex items-center"><Check className="text-emerald mr-2" /> PDF and Excel reports</li>
-            <li className="flex items-center"><Check className="text-emerald mr-2" /> Data storage for 2 years</li>
-            <li className="flex items-center"><Check className="text-emerald mr-2" /> Quarterly reporting</li>
+            <li className="flex items-center"><Check className="text-primary mr-2" /> Full emissions calculator</li>
+            <li className="flex items-center"><Check className="text-primary mr-2" /> Scope 1, 2, and 3 tracking</li>
+            <li className="flex items-center"><Check className="text-primary mr-2" /> PDF and Excel reports</li>
+            <li className="flex items-center"><Check className="text-primary mr-2" /> Data storage for 2 years</li>
+            <li className="flex items-center"><Check className="text-primary mr-2" /> Quarterly reporting</li>
           </ul>
         </CardContent>
         <CardFooter>
-          <Button className="w-full bg-emerald hover:bg-emerald-dark shadow-glow" onClick={handleUpgrade}>
+          <Button className="w-full bg-primary hover:bg-primary/90" onClick={handleUpgrade}>
             Upgrade to Pro (Coming Soon)
           </Button>
         </CardFooter>

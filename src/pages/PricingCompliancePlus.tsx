@@ -24,16 +24,16 @@ export default function PricingCompliancePlus() {
         </CardHeader>
         <CardContent>
           <ul className="space-y-3">
-            <li className="flex items-center"><Check className="text-emerald mr-2" /> CSRD/SEC reporting templates</li>
-            <li className="flex items-center"><Check className="text-emerald mr-2" /> Supplier data integration</li>
-            <li className="flex items-center"><Check className="text-emerald mr-2" /> Team collaboration (up to 5)</li>
-            <li className="flex items-center"><Check className="text-emerald mr-2" /> Audit-ready exports</li>
-            <li className="flex items-center"><Check className="text-emerald mr-2" /> Regulatory deadline tracking</li>
-            <li className="flex items-center"><Check className="text-emerald mr-2" /> Expert support</li>
+            <li className="flex items-center"><Check className="text-primary mr-2" /> CSRD/SEC reporting templates</li>
+            <li className="flex items-center"><Check className="text-primary mr-2" /> Supplier data integration</li>
+            <li className="flex items-center"><Check className="text-primary mr-2" /> Team collaboration (up to 5)</li>
+            <li className="flex items-center"><Check className="text-primary mr-2" /> Audit-ready exports</li>
+            <li className="flex items-center"><Check className="text-primary mr-2" /> Regulatory deadline tracking</li>
+            <li className="flex items-center"><Check className="text-primary mr-2" /> Expert support</li>
           </ul>
         </CardContent>
         <CardFooter>
-          <Button className="w-full bg-emerald hover:bg-emerald-dark shadow-glow" onClick={handleUpgrade}>
+          <Button className="w-full bg-primary hover:bg-primary/90" onClick={handleUpgrade}>
             Upgrade to Compliance+ (Coming Soon)
           </Button>
         </CardFooter>

@@ -28,10 +28,10 @@ const Settings = () => {
         </div>
 
         {/* Tabs - the scrollable container */}
-        <div className="flex-1 min-h-0">
-          <Tabs defaultValue="profile" className="mb-6 h-full">
+        <div className="flex-1 min-h-0 grid md:grid-cols-[220px_1fr] gap-6 items-start">
+          <Tabs defaultValue="profile" className="mb-6 h-full contents">
             <TabsList 
-              className="mb-4 grid grid-cols-2 md:grid-cols-5 w-full overflow-x-auto no-scrollbar gap-2 px-1"
+              className="mb-4 md:mb-0 md:sticky md:top-4 md:self-start md:h-min flex md:flex-col w-full md:w-56 overflow-x-auto no-scrollbar gap-2 px-1"
               style={{ WebkitOverflowScrolling: "touch" }}
             >
               <TabsTrigger 
@@ -77,7 +77,7 @@ const Settings = () => {
                   <div className="flex flex-col sm:flex-row items-center gap-6">
                     <Avatar className="h-20 w-20">
                       <AvatarImage src="" />
-                      <AvatarFallback className="text-xl bg-emerald text-white">SM</AvatarFallback>
+                      <AvatarFallback className="text-xl bg-primary text-primary-foreground">SM</AvatarFallback>
                     </Avatar>
                     <div className="space-y-2 text-center sm:text-left">
                       <Button variant="outline">Change Avatar</Button>
@@ -92,24 +92,24 @@ const Settings = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
                     <div className="space-y-2 w-full">
                       <Label htmlFor="first-name" className="break-words whitespace-normal">First Name</Label>
-                      <Input id="first-name" defaultValue="Sarah" className="break-words whitespace-normal w-full" />
+                      <Input id="first-name" placeholder="Enter first name" className="break-words whitespace-normal w-full" />
                     </div>
                     <div className="space-y-2 w-full">
                       <Label htmlFor="last-name" className="break-words whitespace-normal">Last Name</Label>
-                      <Input id="last-name" defaultValue="Miller" className="break-words whitespace-normal w-full" />
+                      <Input id="last-name" placeholder="Enter last name" className="break-words whitespace-normal w-full" />
                     </div>
                     <div className="space-y-2 w-full">
                       <Label htmlFor="email" className="break-words whitespace-normal">Email</Label>
-                      <Input id="email" defaultValue="sarah@greenledger.ai" className="break-words whitespace-normal w-full" />
+                      <Input id="email" type="email" placeholder="you@example.com" className="break-words whitespace-normal w-full" />
                     </div>
                     <div className="space-y-2 w-full">
                       <Label htmlFor="phone" className="break-words whitespace-normal">Phone Number</Label>
-                      <Input id="phone" defaultValue="+1 (555) 123-4567" className="break-words whitespace-normal w-full" />
+                      <Input id="phone" placeholder="e.g. +1 555 123 4567" className="break-words whitespace-normal w-full" />
                     </div>
                   </div>
                   
                   <div className="flex justify-end">
-                    <Button className="bg-emerald hover:bg-emerald-dark">Save Changes</Button>
+                    <Button>Save Changes</Button>
                   </div>
                 </CardContent>
               </Card>
@@ -136,7 +136,7 @@ const Settings = () => {
                   </div>
                   
                   <div className="flex justify-end">
-                    <Button className="bg-emerald hover:bg-emerald-dark">Update Password</Button>
+                    <Button>Update Password</Button>
                   </div>
                 </CardContent>
               </Card>
@@ -152,11 +152,11 @@ const Settings = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
                     <div className="space-y-2 md:col-span-2 w-full">
                       <Label htmlFor="company-name" className="break-words whitespace-normal">Company Name</Label>
-                      <Input id="company-name" defaultValue="GreenTech Solutions LLC" className="break-words whitespace-normal w-full" />
+                      <Input id="company-name" placeholder="Company name" className="break-words whitespace-normal w-full" />
                     </div>
                     <div className="space-y-2 w-full">
                       <Label htmlFor="industry" className="break-words whitespace-normal">Industry</Label>
-                      <Select defaultValue="technology">
+                      <Select>
                         <SelectTrigger id="industry" className="break-words whitespace-normal w-full">
                           <SelectValue placeholder="Select industry" />
                         </SelectTrigger>
@@ -173,7 +173,7 @@ const Settings = () => {
                     </div>
                     <div className="space-y-2 w-full">
                       <Label htmlFor="company-size" className="break-words whitespace-normal">Company Size</Label>
-                      <Select defaultValue="11-50">
+                      <Select>
                         <SelectTrigger id="company-size" className="break-words whitespace-normal w-full">
                           <SelectValue placeholder="Select company size" />
                         </SelectTrigger>
@@ -193,23 +193,23 @@ const Settings = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
                     <div className="space-y-2 md:col-span-2 w-full">
                       <Label htmlFor="address" className="break-words whitespace-normal">Address</Label>
-                      <Input id="address" defaultValue="123 Green Street" className="break-words whitespace-normal w-full" />
+                      <Input id="address" placeholder="Street address" className="break-words whitespace-normal w-full" />
                     </div>
                     <div className="space-y-2 w-full">
                       <Label htmlFor="city" className="break-words whitespace-normal">City</Label>
-                      <Input id="city" defaultValue="San Francisco" className="break-words whitespace-normal w-full" />
+                      <Input id="city" placeholder="City" className="break-words whitespace-normal w-full" />
                     </div>
                     <div className="space-y-2 w-full">
                       <Label htmlFor="state" className="break-words whitespace-normal">State/Province</Label>
-                      <Input id="state" defaultValue="California" className="break-words whitespace-normal w-full" />
+                      <Input id="state" placeholder="State/Province" className="break-words whitespace-normal w-full" />
                     </div>
                     <div className="space-y-2 w-full">
                       <Label htmlFor="zip" className="break-words whitespace-normal">ZIP/Postal Code</Label>
-                      <Input id="zip" defaultValue="94105" className="break-words whitespace-normal w-full" />
+                      <Input id="zip" placeholder="ZIP/Postal Code" className="break-words whitespace-normal w-full" />
                     </div>
                     <div className="space-y-2 w-full">
                       <Label htmlFor="country" className="break-words whitespace-normal">Country</Label>
-                      <Select defaultValue="us">
+                      <Select>
                         <SelectTrigger id="country" className="break-words whitespace-normal w-full">
                           <SelectValue placeholder="Select country" />
                         </SelectTrigger>
@@ -225,7 +225,7 @@ const Settings = () => {
                   </div>
                   
                   <div className="flex justify-end">
-                    <Button className="bg-emerald hover:bg-emerald-dark">Save Changes</Button>
+                    <Button>Save Changes</Button>
                   </div>
                 </CardContent>
               </Card>
@@ -308,7 +308,7 @@ const Settings = () => {
                     </div>
                     
                     <div className="flex justify-end">
-                      <Button className="bg-emerald hover:bg-emerald-dark">Save Preferences</Button>
+                      <Button>Save Preferences</Button>
                     </div>
                   </div>
                 </CardContent>
@@ -389,19 +389,19 @@ const Settings = () => {
                   <div className="space-y-4">
                     <h3 className="text-lg font-medium">Business Tools</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-                      <Card className="border border-emerald/30 bg-emerald/5">
+                      <Card className="border border-border/50">
                         <CardContent className="p-4">
                           <div className="flex flex-col space-y-3">
                             <div className="flex items-center gap-3">
-                              <div className="h-10 w-10 rounded-lg bg-emerald/20 flex items-center justify-center">
-                                <Check className="h-5 w-5 text-emerald" />
+                              <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                                <Check className="h-5 w-5 text-primary" />
                               </div>
                               <div className="flex-1 min-w-0">
                                 <h4 className="font-medium text-sm">QuickBooks</h4>
-                                <p className="text-xs text-muted-foreground">Connected</p>
+                                <p className="text-xs text-muted-foreground">Not connected</p>
                               </div>
                             </div>
-                            <Button variant="outline" size="sm" className="w-full">Disconnect</Button>
+                            <Button variant="outline" size="sm" className="w-full">Connect</Button>
                           </div>
                         </CardContent>
                       </Card>
@@ -447,7 +447,7 @@ const Settings = () => {
                   </div>
                   
                   <div className="pt-4">
-                    <Button className="bg-emerald hover:bg-emerald-dark w-full sm:w-auto">
+                    <Button className="w-full sm:w-auto">
                       <Plus className="mr-2 h-4 w-4" />
                       Add New Integration
                     </Button>
@@ -464,101 +464,40 @@ const Settings = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-6">
-                    <div className="p-4 bg-emerald/10 border border-emerald/30 rounded-md">
-                      <div className="flex justify-between items-start mb-2">
+                    <div className="p-4 bg-muted/30 border border-border/50 rounded-md">
+                      <div className="flex items-start justify-between">
                         <div>
-                          <h3 className="text-lg font-medium">Pro Plan</h3>
-                          <p className="text-sm text-muted-foreground">$99/month, billed monthly</p>
+                          <h3 className="text-lg font-medium">No active subscription</h3>
+                          <p className="text-sm text-muted-foreground">Choose a plan to unlock all features.</p>
                         </div>
-                        <div className="px-3 py-1 bg-emerald text-white text-xs font-medium rounded-full">
-                          CURRENT PLAN
+                        <div className="px-3 py-1 bg-secondary text-secondary-foreground text-xs font-medium rounded-full">
+                          FREE
                         </div>
                       </div>
-                      
-                      <ul className="space-y-2 my-4">
-                        <li className="flex items-center gap-2">
-                          <Check className="h-4 w-4 text-emerald" />
-                          <span className="text-sm">Full emissions calculator</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Check className="h-4 w-4 text-emerald" />
-                          <span className="text-sm">Unlimited PDF reports</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Check className="h-4 w-4 text-emerald" />
-                          <span className="text-sm">Data analysis tools</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Check className="h-4 w-4 text-emerald" />
-                          <span className="text-sm">Email support</span>
-                        </li>
-                      </ul>
-                      
-                      <div className="flex gap-3">
-                        <Button variant="outline">Change Plan</Button>
-                        <Button variant="outline" className="text-red-500 hover:text-red-600 hover:bg-red-50">Cancel Plan</Button>
+                      <div className="mt-4">
+                        <Button onClick={() => {}}>
+                          Explore Plans
+                        </Button>
                       </div>
                     </div>
-                    
+
                     <Separator />
-                    
+
                     <div className="space-y-4">
                       <h3 className="text-lg font-medium">Payment Method</h3>
-                      <div className="flex items-center gap-3 p-3 border rounded-md">
-                        <svg className="h-6 w-10" viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0" y="0" width="40" height="24" rx="4" fill="#1434CB" />
-                          <path d="M15.4 12.6667C15.4 14.6 16.8333 16 18.8 16C20.7333 16 22.2 14.6 22.2 12.6667C22.2 10.7333 20.7333 9.33333 18.8 9.33333C16.8333 9.33333 15.4 10.7333 15.4 12.6667Z" fill="#FFAA3B" />
-                        </svg>
-                        <div className="flex-1">
-                          <p className="font-medium">•••• •••• •••• 4242</p>
-                          <p className="text-xs text-muted-foreground">Visa • Expires 05/26</p>
-                        </div>
-                        <Button variant="ghost" size="sm">Edit</Button>
+                      <div className="p-4 border rounded-md text-sm text-muted-foreground">
+                        No payment method added yet.
                       </div>
                     </div>
-                    
+
                     <Separator />
-                    
+
                     <div className="space-y-4">
                       <div className="flex justify-between items-center">
                         <h3 className="text-lg font-medium">Billing History</h3>
-                        <Button variant="outline" size="sm">Download All</Button>
                       </div>
-                      
-                      <div className="border rounded-md overflow-hidden">
-                        <div className="grid grid-cols-4 gap-2 p-3 bg-muted/30 text-sm font-medium">
-                          <div>Date</div>
-                          <div>Description</div>
-                          <div>Amount</div>
-                          <div className="text-right">Receipt</div>
-                        </div>
-                        
-                        <div className="divide-y">
-                          <div className="grid grid-cols-4 gap-2 p-3 text-sm">
-                            <div>May 1, 2025</div>
-                            <div>Pro Plan Subscription</div>
-                            <div>$99.00</div>
-                            <div className="text-right">
-                              <Button variant="link" className="p-0 h-auto text-xs">Download</Button>
-                            </div>
-                          </div>
-                          <div className="grid grid-cols-4 gap-2 p-3 text-sm">
-                            <div>Apr 1, 2025</div>
-                            <div>Pro Plan Subscription</div>
-                            <div>$99.00</div>
-                            <div className="text-right">
-                              <Button variant="link" className="p-0 h-auto text-xs">Download</Button>
-                            </div>
-                          </div>
-                          <div className="grid grid-cols-4 gap-2 p-3 text-sm">
-                            <div>Mar 1, 2025</div>
-                            <div>Pro Plan Subscription</div>
-                            <div>$99.00</div>
-                            <div className="text-right">
-                              <Button variant="link" className="p-0 h-auto text-xs">Download</Button>
-                            </div>
-                          </div>
-                        </div>
+                      <div className="p-4 border rounded-md text-sm text-muted-foreground">
+                        No billing history yet.
                       </div>
                     </div>
                   </div>

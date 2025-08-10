@@ -18,10 +18,10 @@ export default function PricingFree() {
         </CardHeader>
         <CardContent>
           <ul className="space-y-3">
-            <li className="flex items-center"><Check className="text-emerald mr-2" /> 1 ESG report per year</li>
-            <li className="flex items-center"><Check className="text-emerald mr-2" /> Scope 1 emissions only</li>
-            <li className="flex items-center"><Check className="text-emerald mr-2" /> Basic dashboard</li>
-            <li className="flex items-center"><Check className="text-emerald mr-2" /> PDF export</li>
+            <li className="flex items-center"><Check className="text-primary mr-2" /> 1 ESG report per year</li>
+            <li className="flex items-center"><Check className="text-primary mr-2" /> Scope 1 emissions only</li>
+            <li className="flex items-center"><Check className="text-primary mr-2" /> Basic dashboard</li>
+            <li className="flex items-center"><Check className="text-primary mr-2" /> PDF export</li>
           </ul>
         </CardContent>
         <CardFooter>
